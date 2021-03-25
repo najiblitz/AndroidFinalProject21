@@ -1,22 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:background="@color/light"
+    android:orientation="vertical"
+    tools:context=".HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/titleImage"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="center"
+        android:adjustViewBounds="true"
+        tools:src="@drawable/logo3"
+        android:contentDescription="TODO" />
+
+    <Button
+        android:id="@+id/budgetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:backgroundTint="@color/primaryLight"
+        android:text="@string/nav_budget"
+        android:textColor="@color/dark"
+        android:textSize="25sp"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/savingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:backgroundTint="@color/primaryLight"
+        android:layout_margin="15dp"
+        android:textColor="@color/dark"
+        android:layout_gravity="center"
+        android:text="@string/nav_savings"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/transactionsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:backgroundTint="@color/primaryLight"
+        android:layout_margin="15dp"
+        android:textColor="@color/dark"
+        android:layout_gravity="center"
+        android:text="@string/nav_transaction"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/conversionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:backgroundTint="@color/primaryLight"
+        android:layout_margin="15dp"
+        android:textColor="@color/dark"
+        android:layout_gravity="center"
+        android:text="@string/nav_conversion"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/billingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:backgroundTint="@color/primaryLight"
+        android:layout_margin="15dp"
+        android:textColor="@color/dark"
+        android:layout_gravity="center"
+        android:text="@string/nav_billing"
+        app:cornerRadius="15dp" />
+
+</LinearLayout>

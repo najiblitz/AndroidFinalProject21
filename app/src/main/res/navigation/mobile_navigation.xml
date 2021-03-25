@@ -3,23 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
+    app:startDestination="@id/nav_home">
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.androidfinal.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:name="com.example.androidfinal.HomeFragment"
+        android:label="@string/nav_home"
         tools:layout="@layout/fragment_home" />
-
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.androidfinal.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
+        android:id="@+id/nav_budget"
+        android:name="com.example.androidfinal.BudgetFragment"
+        android:label="@string/nav_budget"
+        tools:layout="@layout/fragment_budget" />
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.androidfinal.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_savings"
+        android:name="com.example.androidfinal.SavingsTrackerFragment"
+        android:label="@string/nav_savings"
+        tools:layout="@layout/fragment_savings_tracker" />
+    <fragment
+        android:id="@+id/nav_transactions"
+        android:name="com.example.androidfinal.TransactionsFragment"
+        android:label="@string/nav_transaction"
+        tools:layout="@layout/fragment_transactions" />
+    <fragment
+        android:id="@+id/nav_billing"
+        android:name="com.example.androidfinal.ContactFragment"
+        android:label="@string/nav_billing"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/nav_conversion"
+        android:name="com.example.androidfinal.ConversionFragment"
+        android:label="@string/nav_conversion"
+        tools:layout="@layout/fragment_conversion" />
 </navigation>
