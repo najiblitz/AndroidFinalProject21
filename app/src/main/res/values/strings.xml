@@ -16,7 +16,7 @@
 
     // Custom Strings
 
-    // Nav/Menu
+    // Common
 
     <string name="nav_title">Money Cents</string>
     <string name="nav_subtitle">Make Money Make Sense</string>
@@ -27,6 +27,12 @@
     <string name="nav_budget">Budget Tracker</string>
     <string name="nav_transaction">Transactions</string>
     <string name="nav_conversion">Currency Converter</string>
+
+    <string name="newText">New</string>
+
+    // Savings Tracker
+
+    <string name="savingsTrackerText">Savings Amount:</string>
 
 
 </resources>

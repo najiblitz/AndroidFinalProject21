@@ -10,8 +10,8 @@
 
     // Custom Colors
 
-    <color name="light">#fff7d2</color>
-    <color name="primarylight">#f9ce00</color>
+    <color name="light">#F3EEDA</color>
+    <color name="primaryLight">#f9ce00</color>
     <color name="primaryDark">#00818a</color>
     <color name="dark">#09194f</color>
 
