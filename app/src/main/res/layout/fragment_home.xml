@@ -8,22 +8,22 @@
     android:orientation="vertical"
     tools:context=".HomeFragment">
 
-
     <ImageView
         android:id="@+id/titleImage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="268dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
-        tools:src="@drawable/logo3"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO"
+        app:srcCompat="@drawable/logo3"
+        tools:src="@drawable/logo3" />
 
     <Button
         android:id="@+id/budgetButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:backgroundTint="@color/primaryLight"
         android:text="@string/nav_budget"
         android:textColor="@color/dark"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:backgroundTint="@color/primaryLight"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:textColor="@color/dark"
         android:layout_gravity="center"
         android:text="@string/nav_savings"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:backgroundTint="@color/primaryLight"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:textColor="@color/dark"
         android:layout_gravity="center"
         android:text="@string/nav_transaction"
@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:backgroundTint="@color/primaryLight"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:textColor="@color/dark"
         android:layout_gravity="center"
         android:text="@string/nav_conversion"
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:backgroundTint="@color/primaryLight"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:textColor="@color/dark"
         android:layout_gravity="center"
         android:text="@string/nav_billing"
