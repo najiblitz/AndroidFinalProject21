@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 
 import com.example.androidfinal.R;
 
@@ -54,6 +55,7 @@ public class ConversionFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -61,6 +63,13 @@ public class ConversionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_conversion, container, false);
+        View view = inflater.inflate(R.layout.fragment_conversion, container, false);
+
+        Spinner spinnerFrom = view.findViewById(R.id.convertFrom);
+        Spinner spinnerTo = view.findViewById(R.id.convertTo);
+
+
+
+        return view;
     }
 }
