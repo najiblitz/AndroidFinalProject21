@@ -6,32 +6,32 @@
     app:startDestination="@id/nav_home">
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.androidfinal.HomeFragment"
+        android:name="com.example.androidfinal.Fragments.HomeFragment"
         android:label="@string/nav_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/nav_budget"
-        android:name="com.example.androidfinal.BudgetFragment"
+        android:name="com.example.androidfinal.Fragments.BudgetFragment"
         android:label="@string/nav_budget"
         tools:layout="@layout/fragment_budget" />
     <fragment
         android:id="@+id/nav_savings"
-        android:name="com.example.androidfinal.SavingsTrackerFragment"
+        android:name="com.example.androidfinal.Fragments.SavingsTrackerFragment"
         android:label="@string/nav_savings"
         tools:layout="@layout/fragment_savings_tracker" />
     <fragment
         android:id="@+id/nav_transactions"
-        android:name="com.example.androidfinal.TransactionsFragment"
+        android:name="com.example.androidfinal.Fragments.TransactionsFragment"
         android:label="@string/nav_transaction"
         tools:layout="@layout/fragment_transactions" />
     <fragment
         android:id="@+id/nav_billing"
-        android:name="com.example.androidfinal.ContactFragment"
+        android:name="com.example.androidfinal.Fragments.ContactFragment"
         android:label="@string/nav_billing"
         tools:layout="@layout/fragment_contact" />
     <fragment
         android:id="@+id/nav_conversion"
-        android:name="com.example.androidfinal.ConversionFragment"
+        android:name="com.example.androidfinal.Fragments.ConversionFragment"
         android:label="@string/nav_conversion"
         tools:layout="@layout/fragment_conversion" />
 </navigation>

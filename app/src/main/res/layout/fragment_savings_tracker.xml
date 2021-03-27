@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
@@ -61,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
-        android:id="@+id/editTextNumberDecimal"
+        android:id="@+id/totalSavingsAmount"
         android:layout_width="231dp"
         android:layout_height="62dp"
         android:layout_marginStart="8dp"
@@ -84,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal"
+            app:layout_constraintTop_toBottomOf="@+id/totalSavingsAmount"
             tools:layout_editor_absoluteX="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
