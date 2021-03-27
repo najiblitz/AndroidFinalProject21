@@ -18,7 +18,11 @@
         android:id="@+id/nav_savings"
         android:name="com.example.androidfinal.Fragments.SavingsTrackerFragment"
         android:label="@string/nav_savings"
-        tools:layout="@layout/fragment_savings_tracker" />
+        tools:layout="@layout/fragment_savings_tracker" >
+        <action
+            android:id="@+id/action_nav_savings_to_createUpdateSavingFragment"
+            app:destination="@id/createUpdateSavingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_transactions"
         android:name="com.example.androidfinal.Fragments.TransactionsFragment"
@@ -34,4 +38,9 @@
         android:name="com.example.androidfinal.Fragments.ConversionFragment"
         android:label="@string/nav_conversion"
         tools:layout="@layout/fragment_conversion" />
+    <fragment
+        android:id="@+id/createUpdateSavingFragment"
+        android:name="com.example.androidfinal.CreateUpdateSavingFragment"
+        android:label="fragment_create_update_saving"
+        tools:layout="@layout/fragment_create_update_saving" />
 </navigation>
