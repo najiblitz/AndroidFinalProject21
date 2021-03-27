@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light"
-    tools:context=".CreateUpdateSavingFragment">
-
+    tools:context=".EditSavingFragment">
 
     <TextView
         android:id="@+id/textView8"
@@ -15,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/textview_border"
         android:padding="10dp"
-        android:text="Add New Savings Goal"
+        android:text="Edit Savings Amount"
         android:textColor="@color/dark"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,37 +27,39 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
-        android:text="Title"
+        android:text="Saved"
         android:textColor="@color/dark"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <EditText
-        android:id="@+id/savingsTitleNew"
+        android:id="@+id/newAmountHave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:hint="$0.00"
+        android:inputType="numberDecimal"
+        android:textColor="@color/dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="40dp"
-        android:text="Starting"
+        android:text="Goal"
         android:textColor="@color/dark"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
-        android:id="@+id/savingsStartAmount"
+        android:id="@+id/newAmountGoal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -66,46 +67,38 @@
         android:ems="10"
         android:hint="$0.00"
         android:inputType="numberDecimal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/savingsTitleNew" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
-        android:text="End Goal"
         android:textColor="@color/dark"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-    <EditText
-        android:id="@+id/savingsGoalAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:ems="10"
-        android:hint="$0.00"
-        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/savingsStartAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/newAmountHave" />
 
     <Button
-        android:id="@+id/submitNewSavings"
+        android:id="@+id/submitEditSavings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/primaryLight"
-        android:text="Button"
+        android:text="@string/submit"
         android:textColor="@color/dark"
         android:textSize="25sp"
         app:cornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/savingsGoalAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/newAmountGoal" />
+
+    <Button
+        android:id="@+id/cancelEditSavings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/dark"
+        android:text="@string/cancel"
+        android:textColor="@color/primaryLight"
+        android:textSize="15sp"
+        app:cornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitEditSavings" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

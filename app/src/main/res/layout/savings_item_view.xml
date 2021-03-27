@@ -42,21 +42,6 @@
         app:layout_constraintTop_toBottomOf="@+id/savingsTitle" />
 
     <ImageView
-        android:id="@+id/addAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        android:background="@color/primaryDark"
-        android:clickable="true"
-        android:padding="7dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/subtractAmount"
-        app:layout_constraintTop_toBottomOf="@+id/savingsAmount"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <ImageView
         android:id="@+id/subtractAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -65,11 +50,13 @@
         android:layout_marginBottom="15dp"
         android:background="@color/primaryDark"
         android:clickable="true"
+        android:contentDescription="Edit"
         android:padding="7dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savingsAmount"
-        app:srcCompat="@drawable/ic_baseline_horizontal_rule_24" />
+        app:srcCompat="@drawable/ic_baseline_edit_24"
+        android:focusable="true" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

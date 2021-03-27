@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CreateUpdateSavingFragment#newInstance} factory method to
+ * Use the {@link EditSavingFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreateUpdateSavingFragment extends Fragment {
+public class EditSavingFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class CreateUpdateSavingFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CreateUpdateSavingFragment() {
+    public EditSavingFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class CreateUpdateSavingFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CreateUpdateSavingFragment.
+     * @return A new instance of fragment EditSavingFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CreateUpdateSavingFragment newInstance(String param1, String param2) {
-        CreateUpdateSavingFragment fragment = new CreateUpdateSavingFragment();
+    public static EditSavingFragment newInstance(String param1, String param2) {
+        EditSavingFragment fragment = new EditSavingFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +59,6 @@ public class CreateUpdateSavingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_update_saving, container, false);
+        return inflater.inflate(R.layout.fragment_edit_saving, container, false);
     }
 }

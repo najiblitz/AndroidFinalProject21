@@ -49,43 +49,15 @@
         app:layout_constraintTop_toBottomOf="@+id/newSavingsButton"
         tools:src="@drawable/logo3" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/savingsTrackerText"
-        android:textColor="@color/dark"
-        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-    <EditText
-        android:id="@+id/totalSavingsAmount"
-        android:layout_width="231dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:background="@drawable/textview_border"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:padding="15dp"
-        android:text="$"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/totalSavingsAmount"
-            tools:layout_editor_absoluteX="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

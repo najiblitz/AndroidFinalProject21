@@ -29,6 +29,9 @@
     <string name="nav_conversion">Currency Converter</string>
 
     <string name="newText">New</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="submit">Submit</string>
 
     // Savings Tracker
 
