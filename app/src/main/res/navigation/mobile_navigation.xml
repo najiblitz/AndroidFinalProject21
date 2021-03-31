@@ -8,7 +8,23 @@
         android:id="@+id/nav_home"
         android:name="com.example.androidfinal.Fragments.HomeFragment"
         android:label="@string/nav_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_budget"
+            app:destination="@id/nav_budget" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_savings"
+            app:destination="@id/nav_savings" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_transactions"
+            app:destination="@id/nav_transactions" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_conversion"
+            app:destination="@id/nav_conversion" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_billing"
+            app:destination="@id/nav_billing" />
+    </fragment>
     <fragment
         android:id="@+id/nav_budget"
         android:name="com.example.androidfinal.Fragments.BudgetFragment"

@@ -3,6 +3,8 @@ package com.example.androidfinal.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,7 +70,7 @@ public class HomeFragment extends Fragment {
         budgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_budget);
             }
         });
 
@@ -76,7 +78,7 @@ public class HomeFragment extends Fragment {
         budgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_savings);
             }
         });
 
@@ -84,7 +86,7 @@ public class HomeFragment extends Fragment {
         budgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_transactions);
             }
         });
 
@@ -92,7 +94,7 @@ public class HomeFragment extends Fragment {
         budgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_conversion);
             }
         });
 
@@ -100,7 +102,7 @@ public class HomeFragment extends Fragment {
         budgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_billing);
             }
         });
 

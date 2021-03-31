@@ -38,4 +38,16 @@
     <string name="savingsTrackerText">Savings Amount:</string>
 
 
+    // Spinner List
+
+    <string-array name="currencies">
+        <item>USD</item>
+        <item>CAD</item>
+        <item>MXN</item>
+        <item>GBP</item>
+        <item>AUD</item>
+        <item>EUR</item>
+    </string-array>
+
+
 </resources>

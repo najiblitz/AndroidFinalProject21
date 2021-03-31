@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.androidfinal.R;
@@ -65,8 +67,13 @@ public class ConversionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_conversion, container, false);
 
+        // Set Spinners to display the Currencies to choose from
         Spinner spinnerFrom = view.findViewById(R.id.convertFrom);
         Spinner spinnerTo = view.findViewById(R.id.convertTo);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.currencies));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerFrom.setAdapter(adapter);
+        spinnerTo.setAdapter(adapter);
 
 
 
