@@ -60,6 +60,43 @@ public class Saving implements Parcelable {
     };
 
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public double getHaveAmount() {
+        return haveAmount;
+    }
+
+    public void setHaveAmount(double haveAmount) {
+        this.haveAmount = haveAmount;
+    }
+    public double getGoalAmount() {
+        return goalAmount;
+    }
+
+    public void setGoalAmount(double goalAmount) {
+        this.goalAmount = goalAmount;
+    }
+
+    @Override
+    public String toString() {
+        return "Saving{" +
+                "title='" + title + '\'' +
+                '}';
+    }
+
 
 
 }

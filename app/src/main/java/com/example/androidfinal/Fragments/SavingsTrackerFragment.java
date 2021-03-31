@@ -80,7 +80,7 @@ public class SavingsTrackerFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_nav_savings_to_editSavingFragment);
             }
         });
-        
+
 
         return view;
     }
