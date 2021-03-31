@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment {
         });
 
         Button savingsButton = view.findViewById(R.id.savingsButton);
-        budgetButton.setOnClickListener(new View.OnClickListener() {
+        savingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_savings);
@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment {
         });
 
         Button transactionsButton = view.findViewById(R.id.transactionsButton);
-        budgetButton.setOnClickListener(new View.OnClickListener() {
+        transactionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_transactions);
@@ -91,7 +91,7 @@ public class HomeFragment extends Fragment {
         });
 
         Button conversionButton = view.findViewById(R.id.conversionButton);
-        budgetButton.setOnClickListener(new View.OnClickListener() {
+        conversionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_conversion);
@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
         });
 
         Button billingButton = view.findViewById(R.id.billingButton);
-        budgetButton.setOnClickListener(new View.OnClickListener() {
+        billingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(view).navigate(R.id.action_nav_home_to_nav_billing);
