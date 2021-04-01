@@ -34,6 +34,10 @@ public class Saving implements Parcelable {
         goalAmount = in.readDouble();
     }
 
+    public Saving() {
+
+    }
+
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
