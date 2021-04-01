@@ -88,18 +88,18 @@ public class Database extends SQLiteOpenHelper {
 
     }
 
-    public int updateRecipe(Saving recipe) {
+    public int updateSaving(Saving saving) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_TITLE, recipe.getTitle());
-        values.put(COLUMN_HAVE_AMOUNT, recipe.getHaveAmount());
-        values.put(COLUMN_GOAL_AMOUNT, recipe.getGoalAmount());
-        return db.update(TABLE_SAVING, values, COLUMN_ID + "=?", new String[]{String.valueOf(recipe.getId())});
+        values.put(COLUMN_TITLE, saving.getTitle());
+        values.put(COLUMN_HAVE_AMOUNT, saving.getHaveAmount());
+        values.put(COLUMN_GOAL_AMOUNT, saving.getGoalAmount());
+        return db.update(TABLE_SAVING, values, COLUMN_ID + "=?", new String[]{String.valueOf(saving.getId())});
     }
 
-    public void deleteRecipe(int recipe) {
+    public void deleteSaving(int saving) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_SAVING, COLUMN_ID + "=?", new String[]{String.valueOf(recipe)});
+        db.delete(TABLE_SAVING, COLUMN_ID + "=?", new String[]{String.valueOf(saving)});
         db.close();
     }
 
