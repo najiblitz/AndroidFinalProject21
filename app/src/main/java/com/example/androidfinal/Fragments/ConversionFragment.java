@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import com.example.androidfinal.R;
@@ -68,12 +68,30 @@ public class ConversionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_conversion, container, false);
 
         // Set Spinners to display the Currencies to choose from
-        Spinner spinnerFrom = view.findViewById(R.id.convertFrom);
-        Spinner spinnerTo = view.findViewById(R.id.convertTo);
+
+        Spinner spinnerFrom = view.findViewById(R.id.oldCurrency);
+        Spinner spinnerTo = view.findViewById(R.id.newCurrency);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.currencies));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFrom.setAdapter(adapter);
         spinnerTo.setAdapter(adapter);
+
+
+        Button button = view.findViewById(R.id.conversionButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+// for reference to change when i need to take CAD and switch for spinner
+//                "http://api.openweathermap.org/data/2.5/weather?lat="+ location.getLatitude() + "&lon="+ location.getLongitude() +"&units=metric&APPID=YOURIDHERE"
+                String apiKey = "https://v6.exchangerate-api.com/v6/6c8faa9bd56e03f3481bdecd/latest/CAD";
+
+
+
+
+            }
+        });
 
 
 

@@ -1,4 +1,4 @@
-package com.example.androidfinal;
+package com.example.androidfinal.Fragments;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.androidfinal.Pojo.Saving;
+import com.example.androidfinal.R;
 
 //
 ///**

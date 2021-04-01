@@ -59,12 +59,12 @@
         tools:layout="@layout/fragment_conversion" />
     <fragment
         android:id="@+id/createUpdateSavingFragment"
-        android:name="com.example.androidfinal.CreateSavingFragment"
+        android:name="com.example.androidfinal.Fragments.CreateSavingFragment"
         android:label="fragment_create_update_saving"
         tools:layout="@layout/fragment_create_saving" />
     <fragment
         android:id="@+id/editSavingFragment"
-        android:name="com.example.androidfinal.EditSavingFragment"
+        android:name="com.example.androidfinal.Fragments.EditSavingFragment"
         android:label="fragment_edit_saving"
         tools:layout="@layout/fragment_edit_saving" />
 </navigation>
