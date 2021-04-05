@@ -75,8 +75,10 @@ public class CreateSavingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_saving, container, false);
 
         EditText title = view.findViewById(R.id.savingsTitleNew);
+
         EditText haveAmount = view.findViewById(R.id.newAmountHave);
         EditText goalAmount = view.findViewById(R.id.newAmountGoal);
+
         Button submit = view.findViewById(R.id.submitNewSavings);
         Button cancel = view.findViewById(R.id.cancelNewSavings);
 
@@ -88,8 +90,8 @@ public class CreateSavingFragment extends Fragment {
             public void onClick(View v) {
 
                 saving.setTitle(title.getText().toString());
-//                saving.setHaveAmount(haveAmount.getText().toString());
-//                saving.setTitle(title.getText().toString());
+                saving.setHaveAmount(Double.parseDouble(haveAmount.getText().toString()));
+                saving.setGoalAmount(Double.parseDouble(goalAmount.getText().toString()));
 
             }
         });

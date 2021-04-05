@@ -4,13 +4,20 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.androidfinal.CustomRecyclerViewAdapter;
+import com.example.androidfinal.Database;
+import com.example.androidfinal.Pojo.Saving;
 import com.example.androidfinal.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -69,18 +76,34 @@ public class SavingsTrackerFragment extends Fragment {
         newButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                Bundle extra = new Bundle();
+//                extra.putInt(CreateUpdateRecipeFragment.ACTION_TYPE, CreateUpdateRecipeFragment.CREATE);
+//                Navigation.findNavController(view).navigate(R.id.createUpdateRecipeFragment, extra);
                 Navigation.findNavController(view).navigate(R.id.action_nav_savings_to_createUpdateSavingFragment);
             }
         });
 
-        Button editButton = view.findViewById(R.id.editAmount);
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_savings_to_editSavingFragment);
-            }
-        });
+//        Button editButton = view.findViewById(R.id.editAmount);
+//        editButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Navigation.findNavController(view).navigate(R.id.action_nav_savings_to_editSavingFragment);
+//            }
+//        });
 
+        Database db = new Database(getContext());
+
+//        db.addSaving(new Saving("Vacation",145,900));
+//        db.addSaving(new Saving("Car",8350,19500));
+//        db.addSaving(new Saving("Laptop",243,1300));
+
+        ArrayList<Saving> savings = db.getAllSavings();
+        db.close();
+
+        RecyclerView recyclerView = view.findViewById(R.id.recycler);
+        CustomRecyclerViewAdapter adapter = new CustomRecyclerViewAdapter(savings, getActivity());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         return view;
     }

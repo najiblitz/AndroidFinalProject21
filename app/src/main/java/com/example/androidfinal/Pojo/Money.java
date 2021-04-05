@@ -26,12 +26,25 @@ public class Money implements Parcelable {
         this.newCurrency = newCurrency;
     }
 
-    protected Money(Parcel in) {
+    public Money(Parcel in) {
         id = in.readInt();
         amountToConvert = in.readDouble();
         amountConverted = in.readDouble();
         oldCurrency = in.readString();
         newCurrency = in.readString();
+    }
+
+    public Money(int anInt, double aDouble) {
+        this.id = anInt;
+        this.amountConverted = aDouble;
+    }
+
+    public Money() {
+
+    }
+
+    public Money(double parseDouble) {
+        this.amountConverted = getAmountConverted();
     }
 
     @Override
@@ -99,5 +112,5 @@ public class Money implements Parcelable {
     public void setNewCurrency(String newCurrency) {
         this.newCurrency = newCurrency;
     }
-    
+
 }
