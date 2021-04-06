@@ -41,7 +41,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         Saving saving = savings.get(position);
         holder.title.setText(saving.getTitle());
-        holder.haveAmount.setText((int) saving.getHaveAmount());
+        holder.savingsAmount.setText("$" + (int)  saving.getHaveAmount() + " / $" + saving.getGoalAmount());
 //        holder.goalAmount.setText(saving.getGoalAmount());
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +49,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
                 Bundle extra = new Bundle();
                 extra.putInt(CreateSavingFragment.ACTION_TYPE, CreateSavingFragment.UPDATE);
                 extra.putParcelable(CreateSavingFragment.SAVING, savings.get(position));
-                Navigation.findNavController(view).navigate(R.id.createUpdateSavingFragment, extra);
+                Navigation.findNavController(view).navigate(R.id.editSavingFragment, extra);
             }
         });
     }
@@ -65,16 +65,15 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
     class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnLongClickListener{
 
         protected TextView title;
-        protected TextView haveAmount;
+        protected TextView savingsAmount;
         protected ImageView goalAmount;
         protected ImageView edit;
 
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.title = itemView.findViewById(R.id.savingsTitleNew);
-            this.haveAmount = itemView.findViewById(R.id.newAmountHave);
-            this.goalAmount = itemView.findViewById(R.id.newAmountGoal);
+            this.title = itemView.findViewById(R.id.savingsTitle);
+            this.savingsAmount = itemView.findViewById(R.id.savingsAmount);
             this.edit = itemView.findViewById(R.id.editAmount);
             itemView.setOnLongClickListener(this);
         }

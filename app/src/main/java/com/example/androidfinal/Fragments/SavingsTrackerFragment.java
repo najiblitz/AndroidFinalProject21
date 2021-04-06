@@ -83,14 +83,6 @@ public class SavingsTrackerFragment extends Fragment {
             }
         });
 
-//        Button editButton = view.findViewById(R.id.editAmount);
-//        editButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Navigation.findNavController(view).navigate(R.id.action_nav_savings_to_editSavingFragment);
-//            }
-//        });
-
         Database db = new Database(getContext());
 
 //        db.addSaving(new Saving("Vacation",145,900));

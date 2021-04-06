@@ -1,5 +1,6 @@
 package com.example.androidfinal.Fragments;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,11 +17,14 @@ import android.widget.TextView;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Money;
 import com.example.androidfinal.R;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -79,45 +83,57 @@ public class ConversionFragment extends Fragment {
 
         // Set Spinners to display the Currencies to choose from
 
-        Spinner spinnerFrom = view.findViewById(R.id.oldCurrency);
-        Spinner spinnerTo = view.findViewById(R.id.newCurrency);
+        Spinner currencyFrom = view.findViewById(R.id.oldCurrency);
+        Spinner currencyTo = view.findViewById(R.id.newCurrency);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.currencies));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinnerFrom.setAdapter(adapter);
-        spinnerTo.setAdapter(adapter);
+        currencyFrom.setAdapter(adapter);
+        currencyTo.setAdapter(adapter);
 
         TextView amountToConvert = view.findViewById(R.id.amountToConvert);
         TextView amountConverted = view.findViewById(R.id.amountConverted);
 
 
         Button button = view.findViewById(R.id.convertButton);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//// for reference to change when i need to take CAD and switch for spinner
-////                "http://api.openweathermap.org/data/2.5/weather?lat="+ location.getLatitude() + "&lon="+ location.getLongitude() +"&units=metric&APPID=YOURIDHERE"
-//                String apiKey = "https://v6.exchangerate-api.com/v6/6c8faa9bd56e03f3481bdecd/latest/CAD";
-//
-//                RequestQueue queue = Volley.newRequestQueue(getContext());
-//
-//                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiKey, null, new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        try {
-//                            Money money = new Money(Double.parseDouble(amountToConvert.getText().toString()));
-//                            JSONObject mainObject = response.getJSONObject("conversion_rates");
-//                            String rates = mainObject.getString("");
-//
-//                            double convertedAmount = money.get
-//                        }
-//                    }
-//                })
-//            }
-//        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+// for reference to change when i need to take CAD and switch for spinner
+//                "http://api.openweathermap.org/data/2.5/weather?lat="+ location.getLatitude() + "&lon="+ location.getLongitude() +"&units=metric&APPID=YOURIDHERE"
+                String apiKey = "https://v6.exchangerate-api.com/v6/6c8faa9bd56e03f3481bdecd/latest/";
 
+                RequestQueue queue = Volley.newRequestQueue(getContext());
+
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, apiKey + currencyFrom.getSelectedItem().toString(), null, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Money money = new Money(Double.parseDouble(amountToConvert.getText().toString()));
+                            JSONObject mainObject = response.getJSONObject("conversion_rates");
+
+                            double amountToConvert = money.getAmountToConvert();
+                            double convertedAmount = amountToConvert * mainObject.getDouble(currencyTo.getSelectedItem().toString());
+                            amountConverted.setText(convertedAmount + "");
+
+                            Database db = new Database(getContext());
+                            db.addMoney(money);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+                });
+                queue.add(request);
+            }
+
+        });
 
         return view;
     }

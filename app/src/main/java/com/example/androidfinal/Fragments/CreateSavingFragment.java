@@ -3,6 +3,7 @@ package com.example.androidfinal.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,8 +77,8 @@ public class CreateSavingFragment extends Fragment {
 
         EditText title = view.findViewById(R.id.savingsTitleNew);
 
-        EditText haveAmount = view.findViewById(R.id.newAmountHave);
-        EditText goalAmount = view.findViewById(R.id.newAmountGoal);
+        EditText haveAmount = view.findViewById(R.id.savingsStartAmount);
+        EditText goalAmount = view.findViewById(R.id.savingsGoalAmount);
 
         Button submit = view.findViewById(R.id.submitNewSavings);
         Button cancel = view.findViewById(R.id.cancelNewSavings);
@@ -93,6 +94,15 @@ public class CreateSavingFragment extends Fragment {
                 saving.setHaveAmount(Double.parseDouble(haveAmount.getText().toString()));
                 saving.setGoalAmount(Double.parseDouble(goalAmount.getText().toString()));
 
+                Navigation.findNavController(view).popBackStack();
+
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).popBackStack();
             }
         });
 
