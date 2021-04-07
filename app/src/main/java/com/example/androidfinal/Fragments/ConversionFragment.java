@@ -100,8 +100,7 @@ public class ConversionFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-// for reference to change when i need to take CAD and switch for spinner
-//                "http://api.openweathermap.org/data/2.5/weather?lat="+ location.getLatitude() + "&lon="+ location.getLongitude() +"&units=metric&APPID=YOURIDHERE"
+
                 String apiKey = "https://v6.exchangerate-api.com/v6/6c8faa9bd56e03f3481bdecd/latest/";
 
                 RequestQueue queue = Volley.newRequestQueue(getContext());

@@ -147,20 +147,4 @@ public class Database extends SQLiteOpenHelper {
         return money;
     }
 
-//    // can i use something like this instead of created a new object each time for future?? (none of this was used for this today. extra code)
-//
-//    public int updateMoney(Money money) {
-//        SQLiteDatabase db = getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(COLUMN_AMOUNT_TO_CONVERT, money.getAmountToConvert());
-//        return db.update(TABLE_MONEY, values, COLUMN_ID + "=?", new String[]{String.valueOf(money.getId())});
-//    }
-//
-//    public void deleteMoney(int money) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        db.delete(TABLE_MONEY, COLUMN_ID + "=?", new String[]{String.valueOf(money)});
-//        db.close();
-//    }
-
-
 }
