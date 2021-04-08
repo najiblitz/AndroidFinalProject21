@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".Fragments.HomeFragment">
 
+
     <ImageView
         android:id="@+id/titleImage"
         android:layout_width="wrap_content"
@@ -23,7 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="5dp"
         android:backgroundTint="@color/primaryLight"
         android:text="@string/nav_budget"
         android:textColor="@color/dark"
@@ -36,7 +38,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:backgroundTint="@color/primaryLight"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:textColor="@color/dark"
         android:layout_gravity="center"
         android:text="@string/nav_savings"
@@ -48,7 +50,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:backgroundTint="@color/primaryLight"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:textColor="@color/dark"
         android:layout_gravity="center"
         android:text="@string/nav_transaction"
@@ -60,7 +62,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:backgroundTint="@color/primaryLight"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:textColor="@color/dark"
         android:layout_gravity="center"
         android:text="@string/nav_conversion"
@@ -72,7 +74,7 @@
         android:layout_height="wrap_content"
         android:textSize="25sp"
         android:backgroundTint="@color/primaryLight"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:textColor="@color/dark"
         android:layout_gravity="center"
         android:text="@string/nav_billing"
