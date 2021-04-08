@@ -109,6 +109,7 @@ public class ConversionFragment extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            double moneyAmount = Double.parseDouble(amountToConvert.getText().toString());
                             Money money = new Money(Double.parseDouble(amountToConvert.getText().toString()));
                             JSONObject mainObject = response.getJSONObject("conversion_rates");
 

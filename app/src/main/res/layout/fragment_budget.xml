@@ -26,30 +26,56 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
-    <TextView
-        android:id="@+id/textView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Mortgage/Rent" />
 
-    <EditText
-        android:id="@+id/homeCosyt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textAlignment="textEnd" />
+        <TextView
+            android:id="@+id/textView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:text="Monthly Salary"
+            android:textColor="@color/dark"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/refreshButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/primaryLight"
+            android:text="Update"
+            android:textColor="@color/dark"
+            android:textSize="25sp"
+            app:cornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeCosyt" />
+
+        <EditText
+            android:id="@+id/homeCosyt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:width="180dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="$0.00"
+            android:textAlignment="textEnd"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:layout_width="match_parent"
+        android:background="@drawable/textview_border"
         android:layout_height="wrap_content">
 
 
@@ -58,6 +84,7 @@
                 android:layout_height="match_parent"
                 android:columnCount="2"
                 android:useDefaultMargins="true"
+
                 tools:context=".Fragments.BudgetFragment">
 
 
@@ -65,7 +92,12 @@
                     android:id="@+id/textView182"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="HOME EXPENSES" />
+                    android:textColor="@color/dark"
+                    android:textSize="26sp"
+                    android:paddingLeft="10dp"
+                    android:textStyle="bold"
+                    android:paddingTop="3dp"
+                    android:text="HOME" />
 
                 <TextView
                     android:id="@+id/textView312"
@@ -77,6 +109,8 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Mortgage/Rent" />
 
                 <EditText
@@ -84,6 +118,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
 
@@ -171,11 +207,23 @@
                     android:inputType="numberDecimal" />
 
 
+
+
+
+
+
+
+
+
                 <TextView
                     android:id="@+id/textView1822"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="VEHICLE EXPENSES" />
+                    android:textColor="@color/dark"
+                    android:textStyle="bold"
+                    android:textSize="26sp"
+                    android:paddingLeft="10dp"
+                    android:text="VEHICLE" />
 
                 <TextView
                     android:id="@+id/textView3121"
@@ -253,11 +301,22 @@
                     android:textAlignment="textEnd" />
 
 
+
+
+
+
+
+
+
                 <TextView
                     android:id="@+id/textView82"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DAILY EXPENSES" />
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:textSize="26sp"
+                    android:paddingLeft="10dp"
+                    android:text="DAILY" />
 
                 <TextView
                     android:id="@+id/textView311"
@@ -366,12 +425,6 @@
 
 
             </GridLayout>
-
-        <Button
-            android:id="@+id/refreshButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
 
     </ScrollView>
 
