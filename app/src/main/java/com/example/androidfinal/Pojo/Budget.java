@@ -110,6 +110,9 @@ public class Budget implements Parcelable {
 
     public Budget() {
 
+        salary = 0;
+        home = 0;
+
     }
 
     @Override

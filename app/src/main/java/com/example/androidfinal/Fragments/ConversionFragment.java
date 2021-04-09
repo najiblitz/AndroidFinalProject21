@@ -1,6 +1,5 @@
 package com.example.androidfinal.Fragments;
 
-import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -20,8 +18,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.androidfinal.Database;
-import com.example.androidfinal.Pojo.Money;
 import com.example.androidfinal.R;
 
 import org.json.JSONException;
@@ -109,16 +105,12 @@ public class ConversionFragment extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            double moneyAmount = Double.parseDouble(amountToConvert.getText().toString());
-                            Money money = new Money(Double.parseDouble(amountToConvert.getText().toString()));
                             JSONObject mainObject = response.getJSONObject("conversion_rates");
 
-                            double amountToConvert = money.getAmountToConvert();
-                            double convertedAmount = amountToConvert * mainObject.getDouble(currencyTo.getSelectedItem().toString());
-                            amountConverted.setText(convertedAmount + "");
+                            double convertedAmount = Double.parseDouble(amountToConvert.getText().toString()) * mainObject.getDouble(currencyTo.getSelectedItem().toString());
 
-                            Database db = new Database(getContext());
-                            db.addMoney(money);
+                            amountConverted.setText(String.format("%.2f",convertedAmount));
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();

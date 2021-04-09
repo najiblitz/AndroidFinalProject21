@@ -7,8 +7,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.androidfinal.Database;
+import com.example.androidfinal.Pojo.Budget;
 import com.example.androidfinal.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +68,50 @@ public class BudgetFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_budget, container, false);
+        View view = inflater.inflate(R.layout.fragment_budget, container, false);
+
+        EditText salary = view.findViewById(R.id.salary);
+        EditText home = view.findViewById(R.id.homeCost);
+
+        Button button = view.findViewById(R.id.refreshButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Database db = new Database(getContext());
+                Budget budget = db.getAllBudgets().get(0);
+
+                budget.setSalary(salary.getText().toString().equals("") ? 0: Double.parseDouble(salary.getText().toString()));
+
+                budget.setHome(home.getText().toString().equals("") ? 0: Double.parseDouble(home.getText().toString()));
+
+
+                budget.setSalary(budget.getSalary() - budget.getHome());
+
+                salary.setText(String.format("%.2f",budget.getSalary()));
+
+                db.updateBudget(budget);
+                db.close();
+            }
+        });
+
+
+        Database db = new Database(getContext());
+
+
+        if (db.getAllBudgets().isEmpty()) {
+            db.addBudget(new Budget());
+        }
+
+        Budget budget = db.getAllBudgets().get(0);
+        salary.setText(budget.getSalary() + "");
+        home.setText(budget.getHome() + "");
+
+
+
+        db.close();
+
+
+
+        return view;
     }
 }

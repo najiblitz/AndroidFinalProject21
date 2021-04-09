@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.androidfinal.Pojo.Budget;
-import com.example.androidfinal.Pojo.Money;
 import com.example.androidfinal.Pojo.Saving;
 
 import java.util.ArrayList;
@@ -23,7 +22,6 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_SAVING_TABLE);
-        db.execSQL(CREATE_MONEY_TABLE);
         db.execSQL(CREATE_BUDGET_TABLE);
     }
 
@@ -110,46 +108,6 @@ public class Database extends SQLiteOpenHelper {
         db.delete(TABLE_SAVING, COLUMN_ID + "=?", new String[]{String.valueOf(saving)});
         db.close();
     }
-
-
-
-
-
-    /*
-
-    MONEY CONVERTER
-
-     */
-
-
-    public static final String TABLE_MONEY = "money";
-
-    public static final String COLUMN_AMOUNT_TO_CONVERT = "amount_to_convert";
-
-    public static final String CREATE_MONEY_TABLE = "CREATE TABLE " + TABLE_MONEY + "(" + COLUMN_ID + " INTEGER PRIMARY KEY, " + COLUMN_AMOUNT_TO_CONVERT + " DOUBLE)";
-
-    // add new Money object
-    public void addMoney(Money money) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_AMOUNT_TO_CONVERT, money.getAmountToConvert());
-        db.insert(TABLE_MONEY, null, values);
-        db.close();
-    }
-
-    public Money getMoney(int id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Money money = null;
-        Cursor cursor = db.query(TABLE_MONEY, new String[]{COLUMN_ID, COLUMN_AMOUNT_TO_CONVERT}, COLUMN_ID + "= ?", new String[]{String.valueOf(id)}, null,null,null);
-        if (cursor.moveToFirst()) {
-            money = new Money(cursor.getInt(0),
-                    cursor.getDouble(1));
-        }
-        db.close();
-        return money;
-    }
-
-
 
 
 
@@ -332,6 +290,7 @@ public class Database extends SQLiteOpenHelper {
         return db.update(TABLE_BUDGET, values, COLUMN_ID + "=?", new String[]{String.valueOf(budget.getId())});
 
 }
+
 
 
 
