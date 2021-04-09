@@ -22,7 +22,7 @@ public class Budget implements Parcelable {
 
     // Vehicle
 
-    private double vehicle;
+    private double car;
     private double insurance;
     private double gas;
     private double carRepairs;
@@ -32,13 +32,13 @@ public class Budget implements Parcelable {
 
     private double dining;
     private double groceries;
-    private double health;
+    private double beauty;
     private double personal;
     private double activities;
     private double shows;
     private double dailyOther;
 
-    public Budget(double salary, double home, double electric, double oil, double tv, double phone, double homeRepairs, double homeOther, double vehicle, double insurance, double gas, double carRepairs, double carOther, double dining, double groceries, double health, double personal, double activities, double shows, double dailyOther) {
+    public Budget(double salary, double home, double electric, double oil, double tv, double phone, double homeRepairs, double homeOther, double car, double insurance, double gas, double carRepairs, double carOther, double dining, double groceries, double beauty, double personal, double activities, double shows, double dailyOther) {
         this.salary = salary;
         this.home = home;
         this.electric = electric;
@@ -47,20 +47,20 @@ public class Budget implements Parcelable {
         this.phone = phone;
         this.homeRepairs = homeRepairs;
         this.homeOther = homeOther;
-        this.vehicle = vehicle;
+        this.car = car;
         this.insurance = insurance;
         this.gas = gas;
         this.carRepairs = carRepairs;
         this.carOther = carOther;
         this.dining = dining;
         this.groceries = groceries;
-        this.health = health;
+        this.beauty = beauty;
         this.personal = personal;
         this.activities = activities;
         this.shows = shows;
         this.dailyOther = dailyOther;
     }
-    public Budget(int id, double salary, double home, double electric, double oil, double tv, double phone, double homeRepairs, double homeOther, double vehicle, double insurance, double gas, double carRepairs, double carOther, double dining, double groceries, double health, double personal, double activities, double shows, double dailyOther) {
+    public Budget(int id, double salary, double home, double electric, double oil, double tv, double phone, double homeRepairs, double homeOther, double car, double insurance, double gas, double carRepairs, double carOther, double dining, double groceries, double beauty, double personal, double activities, double shows, double dailyOther) {
         this.id = id;
         this.salary = salary;
         this.home = home;
@@ -70,14 +70,14 @@ public class Budget implements Parcelable {
         this.phone = phone;
         this.homeRepairs = homeRepairs;
         this.homeOther = homeOther;
-        this.vehicle = vehicle;
+        this.car = car;
         this.insurance = insurance;
         this.gas = gas;
         this.carRepairs = carRepairs;
         this.carOther = carOther;
         this.dining = dining;
         this.groceries = groceries;
-        this.health = health;
+        this.beauty = beauty;
         this.personal = personal;
         this.activities = activities;
         this.shows = shows;
@@ -94,14 +94,14 @@ public class Budget implements Parcelable {
         phone = in.readDouble();
         homeRepairs = in.readDouble();
         homeOther = in.readDouble();
-        vehicle = in.readDouble();
+        car = in.readDouble();
         insurance = in.readDouble();
         gas = in.readDouble();
         carRepairs = in.readDouble();
         carOther = in.readDouble();
         dining = in.readDouble();
         groceries = in.readDouble();
-        health = in.readDouble();
+        beauty = in.readDouble();
         personal = in.readDouble();
         activities = in.readDouble();
         shows = in.readDouble();
@@ -126,14 +126,14 @@ public class Budget implements Parcelable {
         dest.writeDouble(phone);
         dest.writeDouble(homeRepairs);
         dest.writeDouble(homeOther);
-        dest.writeDouble(vehicle);
+        dest.writeDouble(car);
         dest.writeDouble(insurance);
         dest.writeDouble(gas);
         dest.writeDouble(carRepairs);
         dest.writeDouble(carOther);
         dest.writeDouble(dining);
         dest.writeDouble(groceries);
-        dest.writeDouble(health);
+        dest.writeDouble(beauty);
         dest.writeDouble(personal);
         dest.writeDouble(activities);
         dest.writeDouble(shows);
@@ -228,12 +228,12 @@ public class Budget implements Parcelable {
         this.homeOther = homeOther;
     }
 
-    public double getVehicle() {
-        return vehicle;
+    public double getCar() {
+        return car;
     }
 
-    public void setVehicle(double vehicle) {
-        this.vehicle = vehicle;
+    public void setCar(double car) {
+        this.car = car;
     }
 
     public double getInsurance() {
@@ -284,12 +284,12 @@ public class Budget implements Parcelable {
         this.groceries = groceries;
     }
 
-    public double getHealth() {
-        return health;
+    public double getBeauty() {
+        return beauty;
     }
 
-    public void setHealth(double health) {
-        this.health = health;
+    public void setBeauty(double beauty) {
+        this.beauty = beauty;
     }
 
     public double getPersonal() {
