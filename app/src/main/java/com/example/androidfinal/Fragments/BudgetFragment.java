@@ -1,5 +1,6 @@
 package com.example.androidfinal.Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -122,6 +123,12 @@ public class BudgetFragment extends Fragment {
                 Double newSalary = budget.getSalary() - budget.getHome() - budget.getElectric() - budget.getOil() - budget.getTv() - budget.getPhone() - budget.getHomeRepairs() - budget.getHomeOther() - budget.getCar() - budget.getInsurance() - budget.getGas() - budget.getCarRepairs() - budget.getCarOther() - budget.getDining() - budget.getGroceries() - budget.getBeauty() - budget.getPersonal() - budget.getActivities() - budget.getShows() - budget.getDailyOther() ;
 
                 salaryUpdate.setText(String.format("%.2f",newSalary));
+
+                if (newSalary < 0) {
+                    salaryUpdate.setTextColor(Color.RED);
+                } else {
+                    salaryUpdate.setTextColor(Color.parseColor("#66CD00"));
+                }
 
                 db.updateBudget(budget);
                 db.close();

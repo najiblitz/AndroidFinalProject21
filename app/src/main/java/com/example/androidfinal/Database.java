@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.Pojo.Budget;
 import com.example.androidfinal.Pojo.Saving;
 
@@ -97,7 +98,7 @@ public class Database extends SQLiteOpenHelper {
     public int updateSaving(Saving saving) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_TITLE, saving.getTitle());
+//        values.put(COLUMN_TITLE, saving.getTitle());
         values.put(COLUMN_HAVE_AMOUNT, saving.getHaveAmount());
         values.put(COLUMN_GOAL_AMOUNT, saving.getGoalAmount());
         return db.update(TABLE_SAVING, values, COLUMN_ID + "=?", new String[]{String.valueOf(saving.getId())});
@@ -290,6 +291,103 @@ public class Database extends SQLiteOpenHelper {
         return db.update(TABLE_BUDGET, values, COLUMN_ID + "=?", new String[]{String.valueOf(budget.getId())});
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*
+
+    Billing Contacts
+
+     */
+
+    public static final String TABLE_BILLING = "billing";
+    public static final String COLUMN_COMPANY_NAME = "name";
+    public static final String COLUMN_COMPANY_NUMBER = "phone";
+    public static final String COLUMN_COMPANY_WEBSITE = "website";
+
+    public static final String CREATE_Billing_TABLE = "CREATE TABLE " + TABLE_BILLING + "(" +
+            COLUMN_ID + " INTEGER PRIMARY KEY, " + COLUMN_COMPANY_NAME + " TEXT, " + COLUMN_PHONE + " TEXT, " + COLUMN_COMPANY_WEBSITE + " TEXT)";
+
+
+    public void addBilling(Billing billing) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_COMPANY_NAME, billing.getCompanyName());
+        values.put(COLUMN_COMPANY_NUMBER, billing.getCompanyPhone());
+        values.put(COLUMN_COMPANY_WEBSITE, billing.getCompanyWebsite());
+        db.insert(TABLE_BILLING, null, values);
+        db.close();
+    }
+
+    public Billing getBilling(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Billing billing = null;
+        Cursor cursor = db.query(TABLE_BILLING, new String[]{COLUMN_ID, COLUMN_COMPANY_NAME, COLUMN_COMPANY_NUMBER, COLUMN_COMPANY_WEBSITE}, COLUMN_ID + "= ?", new String[]{String.valueOf(id)}, null, null, null);
+        if (cursor.moveToFirst()) {
+            billing = new Billing(cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3)
+            );
+
+        }
+        db.close();
+        return billing;
+    }
+
+    public ArrayList<Billing> getAllBilling() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT *FROM " + TABLE_BILLING, null);
+        ArrayList<Billing> billings = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            billings.add(new Billing(
+                    cursor.getString(0),
+                    cursor.getString(1),
+                    cursor.getString(2))
+            );
+        }
+        db.close();
+        return billings;
+
+    }
+
+    public int updateBilling(Billing billing) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_COMPANY_NAME, billing.getCompanyName());
+        values.put(COLUMN_COMPANY_NUMBER, billing.getCompanyPhone());
+        values.put(COLUMN_COMPANY_WEBSITE, billing.getCompanyWebsite());
+        return db.update(TABLE_BILLING, values, COLUMN_ID + "=?", new String[]{String.valueOf(billing.getId())});
+    }
+
+    public void deleteBilling(int billing) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_BILLING, COLUMN_ID + "=?", new String[]{String.valueOf(billing)});
+        db.close();
+    }
+
+
+
+
+
+
+
+
+
 
 
 
