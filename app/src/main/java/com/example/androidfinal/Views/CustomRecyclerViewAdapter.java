@@ -1,4 +1,4 @@
-package com.example.androidfinal;
+package com.example.androidfinal.Views;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.androidfinal.Database;
 import com.example.androidfinal.Fragments.CreateSavingFragment;
 import com.example.androidfinal.Pojo.Saving;
+import com.example.androidfinal.R;
 
 import java.util.ArrayList;
 

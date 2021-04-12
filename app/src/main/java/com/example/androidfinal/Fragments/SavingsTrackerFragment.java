@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.androidfinal.CustomRecyclerViewAdapter;
+import com.example.androidfinal.Views.CustomRecyclerViewAdapter;
 import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Saving;
 import com.example.androidfinal.R;

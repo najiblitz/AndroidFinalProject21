@@ -49,5 +49,11 @@
         <item>EUR</item>
     </string-array>
 
+    // Credits
+
+    <string name="credits">Programmed by Amanda Gayer</string>
+    <string name="credits1">All images created by Amanda Gayer</string>
+    <string name="credits2">Share our app with a friend!</string>
+
 
 </resources>

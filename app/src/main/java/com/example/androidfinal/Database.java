@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.Pojo.Budget;
 import com.example.androidfinal.Pojo.Saving;
+import com.example.androidfinal.Pojo.Transaction;
+
 
 import java.util.ArrayList;
 
@@ -24,6 +26,7 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_SAVING_TABLE);
         db.execSQL(CREATE_BUDGET_TABLE);
+        db.execSQL(CREATE_TRANSACTION_TABLE);
     }
 
     /*
@@ -319,7 +322,7 @@ public class Database extends SQLiteOpenHelper {
     public static final String COLUMN_COMPANY_NUMBER = "phone";
     public static final String COLUMN_COMPANY_WEBSITE = "website";
 
-    public static final String CREATE_Billing_TABLE = "CREATE TABLE " + TABLE_BILLING + "(" +
+    public static final String CREATE_BILLING_TABLE = "CREATE TABLE " + TABLE_BILLING + "(" +
             COLUMN_ID + " INTEGER PRIMARY KEY, " + COLUMN_COMPANY_NAME + " TEXT, " + COLUMN_PHONE + " TEXT, " + COLUMN_COMPANY_WEBSITE + " TEXT)";
 
 
@@ -348,6 +351,8 @@ public class Database extends SQLiteOpenHelper {
         db.close();
         return billing;
     }
+
+
 
     public ArrayList<Billing> getAllBilling() {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -389,6 +394,89 @@ public class Database extends SQLiteOpenHelper {
 
 
 
+
+
+
+
+
+
+ /*
+
+    Transactions
+
+     */
+
+    public static final String TABLE_TRANSACTION = "transaction";
+    public static final String COLUMN_TRANSACTION_DATE = "date";
+    public static final String COLUMN_TRANSACTION_NAME = "name";
+    public static final String COLUMN_TRANSACTION_AMOUNT = "amount";
+
+
+    public static final String CREATE_TRANSACTION_TABLE = "CREATE TABLE " + TABLE_SAVING + "(" +
+            COLUMN_ID + " INTEGER PRIMARY KEY, " + COLUMN_TITLE + " TEXT, " + COLUMN_HAVE_AMOUNT + " DOUBLE, " + COLUMN_GOAL_AMOUNT + " DOUBLE)";
+
+
+
+    public void addTransaction(Transaction transaction) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TRANSACTION_DATE, transaction.getDate());
+        values.put(COLUMN_TRANSACTION_NAME, transaction.getTransactionName());
+        values.put(COLUMN_TRANSACTION_AMOUNT, transaction.getAmount());
+        db.insert(TABLE_TRANSACTION, null, values);
+        db.close();
+    }
+
+    public Transaction getTransaction(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Transaction transaction = null;
+        Cursor cursor = db.query(TABLE_TRANSACTION, new String[]{COLUMN_ID, COLUMN_TRANSACTION_DATE, COLUMN_TRANSACTION_NAME, COLUMN_TRANSACTION_AMOUNT}, COLUMN_ID + "= ?", new String[]{String.valueOf(id)}, null, null, null);
+        if (cursor.moveToFirst()) {
+            transaction = new Transaction(cursor.getInt(0),
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getDouble(3)
+            );
+
+        }
+        db.close();
+        return transaction;
+
+    }
+
+
+
+    public ArrayList<Transaction> getAllTransactions() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT *FROM " + TABLE_TRANSACTION, null);
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            transactions.add(new Transaction(
+            cursor.getInt(0),
+            cursor.getString(1),
+            cursor.getString(2),
+            cursor.getDouble(3))
+            );
+        }
+        db.close();
+        return transactions;
+    }
+
+
+    public int updateTransaction(Transaction transaction) {
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_TRANSACTION_DATE, transaction.getDate());
+        values.put(COLUMN_TRANSACTION_NAME, transaction.getTransactionName());
+        values.put(COLUMN_TRANSACTION_AMOUNT, transaction.getAmount());
+        return db.update(TABLE_TRANSACTION, values, COLUMN_ID + "=?", new String[]{String.valueOf(transaction.getId())});
+    }
+
+    public void deleteTransaction(int billing) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_TRANSACTION, COLUMN_ID + "=?", new String[]{String.valueOf(billing)});
+        db.close();
+    }
 
 
 

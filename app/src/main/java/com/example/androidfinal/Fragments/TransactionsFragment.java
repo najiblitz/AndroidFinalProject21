@@ -1,14 +1,26 @@
 package com.example.androidfinal.Fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.androidfinal.Database;
+import com.example.androidfinal.Pojo.Transaction;
 import com.example.androidfinal.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +73,67 @@ public class TransactionsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_transactions, container, false);
+        View view = inflater.inflate(R.layout.fragment_transactions, container, false);
+
+        final ListView listView = view.findViewById(R.id.listview);
+
+        TextView date = view.findViewById(R.id.transactionDate);
+        TextView name = view.findViewById(R.id.transactionName);
+        TextView amount = view.findViewById(R.id.transactionAmount);
+
+        Database db = new Database(getContext());
+
+        Transaction transaction = db.getAllTransactions().get(0);
+
+        transaction.setDate(date.toString());
+        transaction.setTransactionName(name.toString());
+        transaction.setAmount(Double.parseDouble(amount.toString()));
+
+        return view;
+
     }
+
+
+    public class CustomListViewAdapter extends ArrayAdapter<Transaction> {
+
+        public CustomListViewAdapter(@NonNull Context context, ArrayList<Transaction> infos) {
+            super(context, 0, infos);
+        }
+
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_transaction, parent,false);
+            TextView date = convertView.findViewById(R.id.transactionDate);
+            date.setText(getItem(position).getDate());
+            TextView name = convertView.findViewById(R.id.transactionName);
+            date.setText(getItem(position).getTransactionName());
+            TextView amount = convertView.findViewById(R.id.transactionAmount);
+            date.setText((int) getItem(position).getAmount());
+
+            return convertView;
+
+        }
+
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

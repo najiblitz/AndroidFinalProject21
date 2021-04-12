@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/creditsFragment">
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.androidfinal.Fragments.HomeFragment"
@@ -67,4 +67,9 @@
         android:name="com.example.androidfinal.Fragments.EditSavingFragment"
         android:label="fragment_edit_saving"
         tools:layout="@layout/fragment_edit_saving" />
+    <fragment
+        android:id="@+id/creditsFragment"
+        android:name="com.example.androidfinal.Fragments.CreditsFragment"
+        android:label="fragment_credits"
+        tools:layout="@layout/fragment_credits" />
 </navigation>

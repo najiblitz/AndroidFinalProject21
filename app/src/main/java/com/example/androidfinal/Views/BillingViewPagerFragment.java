@@ -1,8 +1,6 @@
-package com.example.androidfinal;
+package com.example.androidfinal.Views;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Billing;
+import com.example.androidfinal.R;
 
 
 import java.util.ArrayList;

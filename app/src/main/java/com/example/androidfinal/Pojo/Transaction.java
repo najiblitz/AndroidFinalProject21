@@ -6,15 +6,18 @@ import android.os.Parcelable;
 public class Transaction implements Parcelable {
 
     private int id;
+    private String date;
     private String transactionName;
     private double amount;
 
-    public Transaction(String transactionName, double amount) {
+    public Transaction(String date, String transactionName, double amount) {
+        this.date = date;
         this.transactionName = transactionName;
         this.amount = amount;
     }
 
-    public Transaction(int id, String transactionName, double amount) {
+    public Transaction(int id, String date, String transactionName, double amount) {
+        this.date = date;
         this.id = id;
         this.transactionName = transactionName;
         this.amount = amount;
@@ -22,6 +25,7 @@ public class Transaction implements Parcelable {
 
     protected Transaction(Parcel in) {
         id = in.readInt();
+        date = in.readString();
         transactionName = in.readString();
         amount = in.readDouble();
     }
@@ -34,6 +38,7 @@ public class Transaction implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
+        dest.writeString(date);
         dest.writeString(transactionName);
         dest.writeDouble(amount);
     }
@@ -66,6 +71,15 @@ public class Transaction implements Parcelable {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 
     public String getTransactionName() {
         return transactionName;
