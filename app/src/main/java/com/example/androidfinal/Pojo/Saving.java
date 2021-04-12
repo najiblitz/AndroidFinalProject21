@@ -11,7 +11,6 @@ public class Saving implements Parcelable {
     private double goalAmount;
 
     public Saving(String title, double haveAmount, double goalAmount) {
-
         this.title = title;
         this.haveAmount = haveAmount;
         this.goalAmount = goalAmount;

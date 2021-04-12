@@ -6,6 +6,7 @@ import android.os.Parcelable;
 public class Budget implements Parcelable {
 
     private int id;
+
     // salary
 
     private double salary;
@@ -112,6 +113,24 @@ public class Budget implements Parcelable {
 
         salary = 0;
         home = 0;
+        electric = 0;
+        oil = 0;
+        tv = 0;
+        phone = 0;
+        homeRepairs = 0;
+        homeOther = 0;
+        car = 0;
+        insurance = 0;
+        gas = 0;
+        carRepairs = 0;
+        carOther = 0;
+        dining = 0;
+        groceries = 0;
+        beauty = 0;
+        personal = 0;
+        activities = 0;
+        shows = 0;
+        dailyOther = 0;
 
     }
 

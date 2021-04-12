@@ -85,10 +85,6 @@ public class SavingsTrackerFragment extends Fragment {
 
         Database db = new Database(getContext());
 
-//        db.addSaving(new Saving("Vacation",145,900));
-//        db.addSaving(new Saving("Car",8350,19500));
-//        db.addSaving(new Saving("Laptop",243,1300));
-
         ArrayList<Saving> savings = db.getAllSavings();
         db.close();
 

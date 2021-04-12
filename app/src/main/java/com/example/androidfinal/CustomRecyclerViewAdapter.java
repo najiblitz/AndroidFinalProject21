@@ -42,7 +42,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
         Saving saving = savings.get(position);
         holder.title.setText(saving.getTitle());
         holder.savingsAmount.setText("$" + (int)  saving.getHaveAmount() + " / $" + saving.getGoalAmount());
-//        holder.goalAmount.setText(saving.getGoalAmount());
+
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,14 +66,17 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
 
         protected TextView title;
         protected TextView savingsAmount;
-        protected ImageView goalAmount;
+        //this
+        protected TextView goalAmount;
         protected ImageView edit;
 
 
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.savingsTitle);
+            // and this
             this.savingsAmount = itemView.findViewById(R.id.savingsAmount);
+            this.goalAmount = itemView.findViewById(R.id.savingsGoalAmount);
             this.edit = itemView.findViewById(R.id.editAmount);
             itemView.setOnLongClickListener(this);
         }

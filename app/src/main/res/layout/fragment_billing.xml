@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragments.ContactFragment">
+    android:background="@color/light"
+    tools:context=".Fragments.BillingFragment">
 
 
     <TextView
@@ -19,10 +21,53 @@
         android:textSize="35sp"
         android:layout_gravity="center" />
 
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:text="Don't forget to follow us on Twitter for budgeting tips!" />
+
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="60dp"
+        android:maxHeight="60dp"
+        android:backgroundTint="@color/light"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:layout_gravity="center"
+        android:background="@drawable/textview_border"
+        android:src="@drawable/twitter" />
+
+    <Button
+        android:id="@+id/addNewBilling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/primaryLight"
+        android:layout_margin="10dp"
+        android:textColor="@color/dark"
+        android:layout_gravity="center"
+        android:text="New" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light"
+        android:id="@+id/tabLayout" />
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/billingViewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="match_parent" >
+    </androidx.viewpager2.widget.ViewPager2>
 
 </LinearLayout>

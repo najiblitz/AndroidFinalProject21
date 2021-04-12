@@ -6,27 +6,23 @@ import android.os.Parcelable;
 public class Transaction implements Parcelable {
 
     private int id;
-    private String category;
-    private String name;
+    private String transactionName;
     private double amount;
 
-    public Transaction(String category, String name, double amount) {
-        this.category = category;
-        this.name = name;
+    public Transaction(String transactionName, double amount) {
+        this.transactionName = transactionName;
         this.amount = amount;
     }
 
-    public Transaction(int id, String category, String name, double amount) {
+    public Transaction(int id, String transactionName, double amount) {
         this.id = id;
-        this.category = category;
-        this.name = name;
+        this.transactionName = transactionName;
         this.amount = amount;
     }
 
     protected Transaction(Parcel in) {
         id = in.readInt();
-        category = in.readString();
-        name = in.readString();
+        transactionName = in.readString();
         amount = in.readDouble();
     }
 
@@ -38,8 +34,7 @@ public class Transaction implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
-        dest.writeString(name);
-        dest.writeString(category);
+        dest.writeString(transactionName);
         dest.writeDouble(amount);
     }
 
@@ -72,20 +67,12 @@ public class Transaction implements Parcelable {
         this.id = id;
     }
 
-    public String getCategory() {
-        return category;
+    public String getTransactionName() {
+        return transactionName;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setTransactionName(String transactionName) {
+        this.transactionName = transactionName;
     }
 
     public double getAmount() {
@@ -99,7 +86,7 @@ public class Transaction implements Parcelable {
     @Override
     public String toString() {
         return "Transaction{" +
-                "category='" + category + '\'' +
+                "transactionName='" + transactionName + '\'' +
                 '}';
     }
 
