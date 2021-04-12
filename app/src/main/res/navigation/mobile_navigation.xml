@@ -55,7 +55,11 @@
         android:id="@+id/nav_billing"
         android:name="com.example.androidfinal.Fragments.BillingFragment"
         android:label="@string/nav_billing"
-        tools:layout="@layout/fragment_billing" />
+        tools:layout="@layout/fragment_billing" >
+        <action
+            android:id="@+id/action_nav_billing_to_createBillingFragment"
+            app:destination="@id/createBillingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_conversion"
         android:name="com.example.androidfinal.Fragments.ConversionFragment"

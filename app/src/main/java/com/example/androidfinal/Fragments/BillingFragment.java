@@ -1,22 +1,28 @@
 package com.example.androidfinal.Fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.navigation.Navigation;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
 import com.example.androidfinal.Views.BillingViewPagerFragment;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
@@ -83,11 +89,25 @@ public class BillingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_billing, container, false);
 
+        ImageButton twitterButton = view.findViewById(R.id.twitterButton);
+        twitterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.twitter.com/moneycents/"));
+                intent.setPackage("com.twitter.android");
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
+                } else {
+                    Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         fab.setImageResource(R.drawable.ic_baseline_add_24);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // navigate to create page
+                Navigation.findNavController(view).navigate(R.id.action_nav_billing_to_createBillingFragment);
             }
         });
         fab.show();
@@ -136,7 +156,7 @@ public class BillingFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return 0;
+            return billings.size();
         }
 
     }

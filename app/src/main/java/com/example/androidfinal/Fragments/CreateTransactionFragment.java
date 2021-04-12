@@ -18,52 +18,16 @@ import com.example.androidfinal.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CreateTransactionFragment#newInstance} factory method to
+ * Use the  factory method to
  * create an instance of this fragment.
  */
 public class CreateTransactionFragment extends Fragment {
 
     Transaction transaction;
+    public static final int UPDATE =1;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public CreateTransactionFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CreateTransactionFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CreateTransactionFragment newInstance(String param1, String param2) {
-        CreateTransactionFragment fragment = new CreateTransactionFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public static final String TRANSACTION = "Transaction";
+    public static final String ACTION_TYPE = "action_type";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,11 +47,12 @@ public class CreateTransactionFragment extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transaction.setDate(name.getText().toString());
+                Database db = new Database(getContext());
+                transaction.setDate(date.getText().toString());
                 transaction.setTransactionName(name.getText().toString());
                 transaction.setAmount(Double.parseDouble(amount.getText().toString()));
 
-                Database db = new Database(getContext());
+
                 db.addTransaction(transaction);
                 db.close();
 

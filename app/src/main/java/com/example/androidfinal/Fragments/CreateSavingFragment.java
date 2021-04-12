@@ -24,10 +24,10 @@ public class CreateSavingFragment extends Fragment {
 
 
     Saving saving;
-//    public static final int UPDATE =1;
+    public static final int UPDATE =1;
 
-//    public static final String SAVING = "Saving";
-//    public static final String ACTION_TYPE = "action_type";
+    public static final String SAVING = "Saving";
+    public static final String ACTION_TYPE = "action_type";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +36,6 @@ public class CreateSavingFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_create_saving, container, false);
 
         EditText title = view.findViewById(R.id.transDate);
-
         EditText haveAmount = view.findViewById(R.id.transName);
         EditText goalAmount = view.findViewById(R.id.transAmount);
 

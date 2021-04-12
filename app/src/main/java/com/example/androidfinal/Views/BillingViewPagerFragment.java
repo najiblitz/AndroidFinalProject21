@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -79,12 +80,23 @@ public class BillingViewPagerFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_billing_view_pager, container, false);
 
         TextView name = view.findViewById(R.id.companyName);
-        TextView phone = view.findViewById(R.id.companyPhone);
-        TextView website = view.findViewById(R.id.companyWebsite);
+        ImageButton phone = view.findViewById(R.id.companyPhone);
+        ImageButton website = view.findViewById(R.id.companyWebsite);
 
-        name.setText(mParam1);
-        phone.setText(mParam2);
-        website.setText(mParam3);
+        name.setText(billing.getCompanyName());
+        phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        website.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         return view;
     }

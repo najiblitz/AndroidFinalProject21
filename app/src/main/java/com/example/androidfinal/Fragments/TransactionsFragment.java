@@ -7,18 +7,22 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.androidfinal.Database;
+import com.example.androidfinal.Pojo.Saving;
 import com.example.androidfinal.Pojo.Transaction;
 import com.example.androidfinal.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -28,6 +32,8 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class TransactionsFragment extends Fragment {
+
+    FloatingActionButton fab;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,15 +81,24 @@ public class TransactionsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_transactions, container, false);
 
-        final ListView listView = view.findViewById(R.id.listview);
-
-        ArrayList<Transaction> transactions = new ArrayList<>();
+        Button button = view.findViewById(R.id.newTransbutton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).navigate(R.id.action_nav_transactions_to_createTransactionFragment);
+            }
+        });
 
         Database db = new Database(getContext());
 
-         transactions = db.getAllTransactions();
-         listView.setAdapter(new CustomListViewAdapter(getContext(), transactions));
+        ArrayList<Transaction> transactions = db.getAllTransactions();
+        db.close();
 
+
+        ListView listView = view.findViewById(R.id.listview);
+
+
+        listView.setAdapter(new CustomListViewAdapter(getContext(), transactions));
 
         return view;
 
@@ -103,9 +118,9 @@ public class TransactionsFragment extends Fragment {
             TextView date = convertView.findViewById(R.id.transactionDate);
             date.setText(getItem(position).getDate());
             TextView name = convertView.findViewById(R.id.transactionName);
-            date.setText(getItem(position).getTransactionName());
+            name.setText(getItem(position).getTransactionName());
             TextView amount = convertView.findViewById(R.id.transactionAmount);
-            date.setText((int) getItem(position).getAmount());
+            amount.setText((int) getItem(position).getAmount());
 
             return convertView;
 

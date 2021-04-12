@@ -67,7 +67,7 @@
         android:ems="10"
         android:textAlignment="center"
         android:hint="ex. 5551112222"
-        android:inputType="numberDecimal"
+        android:inputType="phone"
         android:textColor="@color/dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/billingName" />
@@ -93,7 +93,7 @@
         android:ems="10"
         android:hint="www.example.com"
         android:textAlignment="center"
-        android:inputType="numberDecimal"
+        android:inputType="text"
         android:textColor="@color/dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/billingPhone" />

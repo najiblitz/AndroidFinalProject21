@@ -29,6 +29,7 @@ public class CreateBillingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_billing, container, false);
 
+
         EditText name = view.findViewById(R.id.billingName);
         EditText phone = view.findViewById(R.id.billingPhone);
         EditText web = view.findViewById(R.id.billingWebsite);
