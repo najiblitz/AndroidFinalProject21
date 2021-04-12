@@ -23,12 +23,15 @@ import com.example.androidfinal.R;
 public class EditSavingFragment extends Fragment {
 
     Saving saving;
+    public static final String SAVING = "Saving";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_edit_saving, container, false);
+
+        saving = getArguments().getParcelable(SAVING);
 
         EditText haveAmount = view.findViewById(R.id.newAmountHave);
         EditText goalAmount = view.findViewById(R.id.newAmountGoal);

@@ -76,9 +76,6 @@ public class SavingsTrackerFragment extends Fragment {
         newButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Bundle extra = new Bundle();
-//                extra.putInt(CreateUpdateRecipeFragment.ACTION_TYPE, CreateUpdateRecipeFragment.CREATE);
-//                Navigation.findNavController(view).navigate(R.id.createUpdateRecipeFragment, extra);
                 Navigation.findNavController(view).navigate(R.id.action_nav_savings_to_createUpdateSavingFragment);
             }
         });

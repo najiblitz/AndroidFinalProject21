@@ -144,6 +144,7 @@ public class BudgetFragment extends Fragment {
         Budget budget = db.getAllBudgets().get(0);
         salary.setText(budget.getSalary() + "");
         home.setText(budget.getHome() + "");
+        electricity.setText(budget.getElectric() + "");
         oil.setText(budget.getOil() + "");
         tv.setText(budget.getTv() + "");
         phone.setText(budget.getPhone() + "");

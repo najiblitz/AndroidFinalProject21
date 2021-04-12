@@ -83,7 +83,7 @@ public class Database extends SQLiteOpenHelper {
 
     public ArrayList<Saving> getAllSavings() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT *FROM " + TABLE_SAVING, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_SAVING, null);
         ArrayList<Saving> savings = new ArrayList<>();
         while (cursor.moveToNext()) {
             savings.add(new Saving(
@@ -356,7 +356,7 @@ public class Database extends SQLiteOpenHelper {
 
     public ArrayList<Billing> getAllBilling() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT *FROM " + TABLE_BILLING, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_BILLING, null);
         ArrayList<Billing> billings = new ArrayList<>();
         while (cursor.moveToNext()) {
             billings.add(new Billing(
@@ -398,22 +398,20 @@ public class Database extends SQLiteOpenHelper {
 
 
 
-
-
  /*
 
     Transactions
 
      */
 
-    public static final String TABLE_TRANSACTION = "transaction";
+    public static final String TABLE_TRANSACTION = "trans";
     public static final String COLUMN_TRANSACTION_DATE = "date";
     public static final String COLUMN_TRANSACTION_NAME = "name";
     public static final String COLUMN_TRANSACTION_AMOUNT = "amount";
 
 
-    public static final String CREATE_TRANSACTION_TABLE = "CREATE TABLE " + TABLE_SAVING + "(" +
-            COLUMN_ID + " INTEGER PRIMARY KEY, " + COLUMN_TITLE + " TEXT, " + COLUMN_HAVE_AMOUNT + " DOUBLE, " + COLUMN_GOAL_AMOUNT + " DOUBLE)";
+    public static final String CREATE_TRANSACTION_TABLE = "CREATE TABLE " + TABLE_TRANSACTION + "(" +
+            COLUMN_ID + " INTEGER PRIMARY KEY, " + COLUMN_TRANSACTION_DATE + " TEXT, " + COLUMN_TRANSACTION_NAME + " TEXT, " + COLUMN_TRANSACTION_AMOUNT + " DOUBLE)";
 
 
 
@@ -448,7 +446,7 @@ public class Database extends SQLiteOpenHelper {
 
     public ArrayList<Transaction> getAllTransactions() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT *FROM " + TABLE_TRANSACTION, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_TRANSACTION, null);
         ArrayList<Transaction> transactions = new ArrayList<>();
         while (cursor.moveToNext()) {
             transactions.add(new Transaction(

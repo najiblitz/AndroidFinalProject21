@@ -77,17 +77,13 @@ public class TransactionsFragment extends Fragment {
 
         final ListView listView = view.findViewById(R.id.listview);
 
-        TextView date = view.findViewById(R.id.transactionDate);
-        TextView name = view.findViewById(R.id.transactionName);
-        TextView amount = view.findViewById(R.id.transactionAmount);
+        ArrayList<Transaction> transactions = new ArrayList<>();
 
         Database db = new Database(getContext());
 
-        Transaction transaction = db.getAllTransactions().get(0);
+         transactions = db.getAllTransactions();
+         listView.setAdapter(new CustomListViewAdapter(getContext(), transactions));
 
-        transaction.setDate(date.toString());
-        transaction.setTransactionName(name.toString());
-        transaction.setAmount(Double.parseDouble(amount.toString()));
 
         return view;
 
