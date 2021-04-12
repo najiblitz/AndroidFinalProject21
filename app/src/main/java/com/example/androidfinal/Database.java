@@ -27,6 +27,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(CREATE_SAVING_TABLE);
         db.execSQL(CREATE_BUDGET_TABLE);
         db.execSQL(CREATE_TRANSACTION_TABLE);
+        db.execSQL(CREATE_BILLING_TABLE);
     }
 
     /*

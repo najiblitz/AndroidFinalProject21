@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:src="@drawable/ic_baseline_home_white"
+        android:src="@drawable/ic_baseline_language_24"
         android:background="@drawable/custom_circle"
         android:maxHeight="40dp"
         android:maxWidth="40dp"

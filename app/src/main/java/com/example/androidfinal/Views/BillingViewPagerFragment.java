@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.androidfinal.Database;
+
 import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
 
@@ -82,16 +82,9 @@ public class BillingViewPagerFragment extends Fragment {
         TextView phone = view.findViewById(R.id.companyPhone);
         TextView website = view.findViewById(R.id.companyWebsite);
 
-        billing = new Billing();
-
-
-
-        Database db = new Database(getContext());
-
-
-
-        db.close();
-
+        name.setText(mParam1);
+        phone.setText(mParam2);
+        website.setText(mParam3);
 
         return view;
     }

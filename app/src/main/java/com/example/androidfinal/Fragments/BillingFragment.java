@@ -6,8 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -18,10 +16,14 @@ import android.view.ViewGroup;
 import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
+import com.example.androidfinal.Views.BillingViewPagerFragment;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
+
+
+import static com.example.androidfinal.MainActivity.fab;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,8 +32,9 @@ import java.util.ArrayList;
  */
 public class BillingFragment extends Fragment {
 
+
     ViewPager2 viewPager;
-    Billing billing;
+    ArrayList<Billing> billings;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -80,24 +83,25 @@ public class BillingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_billing, container, false);
 
+        fab.setImageResource(R.drawable.ic_baseline_add_24);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // navigate to create page
+            }
+        });
+        fab.show();
+
         Database db = new Database(getContext());
 
-        ArrayList<Billing> billings = db.getAllBilling();
+        billings = db.getAllBilling();
         db.close();
 
         ViewPager2 viewPager = view.findViewById(R.id.billingViewpager);
 
-        CustomViewPagerAdapter adapter = new CustomViewPagerAdapter(getActivity());
+        CustomViewPagerAdapter adapter = new CustomViewPagerAdapter(getActivity(), billings);
         viewPager.setPageTransformer(new DepthPageTransformer());
         viewPager.setAdapter(adapter);
-
-        // something
-
-
-        RecyclerView recyclerView = view.findViewById(R.id.recycler);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
 
         return view;
     }
@@ -105,13 +109,18 @@ public class BillingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         TabLayout tabLayout = view.findViewById(R.id.tabLayout);
-        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(billing.getCompanyName())).attach();
+//        if (billings.size() != 0) {
+//            new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(billings.get(position).getCompanyName())).attach();
+//        }
     }
 
     public class CustomViewPagerAdapter extends FragmentStateAdapter {
 
-        public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+        ArrayList<Billing> billings;
+
+        public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, ArrayList<Billing> billings) {
             super(fragmentActivity);
+            this.billings = billings;
         }
 
         @NonNull
@@ -120,9 +129,8 @@ public class BillingFragment extends Fragment {
 
             // TODO: add code for setting database
 
+            return BillingViewPagerFragment.newInstance(billings.get(position).getCompanyName(), billings.get(position).getCompanyPhone(), billings.get(position).getCompanyWebsite());
 
-
-            return null;
         }
 
 
