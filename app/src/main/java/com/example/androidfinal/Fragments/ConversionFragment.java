@@ -1,8 +1,10 @@
 package com.example.androidfinal.Fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,6 +79,10 @@ public class ConversionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_conversion, container, false);
 
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean sizeOption = sharedPrefs.getBoolean("textSize", false);
+        boolean roundUp = sharedPrefs.getBoolean("roundUp", false);
+
         // Set Spinners to display the Currencies to choose from
 
         Spinner currencyFrom = view.findViewById(R.id.oldCurrency);
@@ -109,8 +115,11 @@ public class ConversionFragment extends Fragment {
 
                             double convertedAmount = Double.parseDouble(amountToConvert.getText().toString()) * mainObject.getDouble(currencyTo.getSelectedItem().toString());
 
-                            amountConverted.setText(String.format("%.2f",convertedAmount));
-
+                            if (roundUp) {
+                                amountConverted.setText(String.format("%.2f", convertedAmount));
+                            } else {
+                                amountConverted.setText((int) convertedAmount + "");
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -1,10 +1,12 @@
 package com.example.androidfinal.Fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,6 +83,11 @@ public class CreditsFragment extends Fragment {
                     Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
                 }
             }});
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean sizeOption = sharedPrefs.getBoolean("textSize", false);
+
+
 
         return view;
     }

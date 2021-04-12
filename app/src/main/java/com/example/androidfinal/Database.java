@@ -297,6 +297,13 @@ public class Database extends SQLiteOpenHelper {
 }
 
 
+    public void deleteBudget(int budget) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_BUDGET, COLUMN_ID + "=?", new String[]{String.valueOf(budget)});
+        db.close();
+    }
+
+
 
 
 

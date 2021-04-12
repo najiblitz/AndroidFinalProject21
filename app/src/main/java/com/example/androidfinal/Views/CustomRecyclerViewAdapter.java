@@ -78,7 +78,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
             this.title = itemView.findViewById(R.id.savingsTitle);
             // and this
             this.savingsAmount = itemView.findViewById(R.id.savingsAmount);
-            this.goalAmount = itemView.findViewById(R.id.savingsGoalAmount);
+            this.goalAmount = itemView.findViewById(R.id.transAmount);
             this.edit = itemView.findViewById(R.id.editAmount);
             itemView.setOnLongClickListener(this);
         }

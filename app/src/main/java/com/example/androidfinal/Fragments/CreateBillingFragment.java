@@ -12,54 +12,44 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.androidfinal.Database;
-import com.example.androidfinal.Pojo.Saving;
+import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
-
 
 /**
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class CreateSavingFragment extends Fragment {
+public class CreateBillingFragment extends Fragment {
 
-
-    Saving saving;
-//    public static final int UPDATE =1;
-
-//    public static final String SAVING = "Saving";
-//    public static final String ACTION_TYPE = "action_type";
+   Billing billing;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_create_saving, container, false);
+        View view = inflater.inflate(R.layout.fragment_create_billing, container, false);
 
-        EditText title = view.findViewById(R.id.transDate);
+        EditText name = view.findViewById(R.id.billingName);
+        EditText phone = view.findViewById(R.id.billingPhone);
+        EditText web = view.findViewById(R.id.billingWebsite);
 
-        EditText haveAmount = view.findViewById(R.id.transName);
-        EditText goalAmount = view.findViewById(R.id.transAmount);
+        Button submit = view.findViewById(R.id.submitNewBilling);
+        Button cancel = view.findViewById(R.id.cancelNewBilling);
 
-        Button submit = view.findViewById(R.id.submitNewTransaction);
-        Button cancel = view.findViewById(R.id.cancelNewTransaction);
-
-        saving = new Saving();
+        billing = new Billing();
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                saving.setTitle(title.getText().toString());
-                saving.setHaveAmount(Double.parseDouble(haveAmount.getText().toString()));
-                saving.setGoalAmount(Double.parseDouble(goalAmount.getText().toString()));
+                billing.setCompanyName(name.getText().toString());
+                billing.setCompanyPhone(phone.getText().toString());
+                billing.setCompanyWebsite(web.getText().toString());
 
                 Database db = new Database(getContext());
-                db.addSaving(saving);
+                db.addBilling(billing);
                 db.close();
 
-
                 Navigation.findNavController(view).popBackStack();
-
             }
         });
 
@@ -71,5 +61,6 @@ public class CreateSavingFragment extends Fragment {
         });
 
         return view;
+
     }
 }
