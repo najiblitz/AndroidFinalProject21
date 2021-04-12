@@ -3,11 +3,17 @@ package com.example.androidfinal.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
+import com.example.androidfinal.Database;
+import com.example.androidfinal.Pojo.Billing;
+import com.example.androidfinal.Pojo.Transaction;
 import com.example.androidfinal.R;
 
 /**
@@ -16,6 +22,8 @@ import com.example.androidfinal.R;
  * create an instance of this fragment.
  */
 public class CreateTransactionFragment extends Fragment {
+
+    Transaction transaction;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +69,40 @@ public class CreateTransactionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_transaction, container, false);
+        View view = inflater.inflate(R.layout.fragment_create_transaction, container, false);
+
+        EditText date = view.findViewById(R.id.transactionDate);
+        EditText name = view.findViewById(R.id.transactionName);
+        EditText amount = view.findViewById(R.id.transAmount);
+
+        Button submit = view.findViewById(R.id.submitNewTransaction);
+        Button cancel = view.findViewById(R.id.cancelNewTransaction);
+
+        transaction = new Transaction();
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                transaction.setDate(name.getText().toString());
+                transaction.setTransactionName(name.getText().toString());
+                transaction.setAmount(Double.parseDouble(amount.getText().toString()));
+
+                Database db = new Database(getContext());
+                db.addTransaction(transaction);
+                db.close();
+
+                Navigation.findNavController(view).popBackStack();
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(view).popBackStack();
+            }
+        });
+
+        return view;
+
     }
 }
