@@ -80,21 +80,21 @@
     <fragment
         android:id="@+id/createUpdateSavingFragment"
         android:name="com.example.androidfinal.Fragments.CreateSavingFragment"
-        android:label="fragment_create_update_saving"
+        android:label="Create Saving"
         tools:layout="@layout/fragment_create_saving" />
     <fragment
         android:id="@+id/editSavingFragment"
         android:name="com.example.androidfinal.Fragments.EditSavingFragment"
-        android:label="fragment_edit_saving"
+        android:label="Edit Saving"
         tools:layout="@layout/fragment_edit_saving" />
     <fragment
-        android:id="@+id/nav_credits"
-        android:name="com.example.androidfinal.Fragments.CreditsFragment"
-        android:label="fragment_credits"
-        tools:layout="@layout/fragment_credits" />
+        android:id="@+id/nav_contact"
+        android:name="com.example.androidfinal.Fragments.ContactFragment"
+        android:label="Contact Us"
+        tools:layout="@layout/fragment_contact" />
     <fragment
         android:id="@+id/createTransactionFragment"
         android:name="com.example.androidfinal.Fragments.CreateTransactionFragment"
-        android:label="fragment_create_transaction"
+        android:label="Create Transaction"
         tools:layout="@layout/fragment_create_transaction" />
 </navigation>

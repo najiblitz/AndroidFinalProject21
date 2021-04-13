@@ -1,9 +1,6 @@
 package com.example.androidfinal.Views;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,18 +9,9 @@ import androidx.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import com.example.androidfinal.Database;
-import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
-import com.google.android.material.snackbar.Snackbar;
-
-
-import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.

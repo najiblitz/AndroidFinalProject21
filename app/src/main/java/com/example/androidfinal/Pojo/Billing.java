@@ -5,6 +5,14 @@ import android.os.Parcelable;
 
 public class Billing implements Parcelable {
 
+
+    /**
+     * This class is a pojo that represents each billing contact
+     * @author najiblitz
+     * @version 1.0
+     *
+     */
+
     private int id;
     private String companyName;
     private String companyPhone;

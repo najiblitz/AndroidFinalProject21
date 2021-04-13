@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.example.androidfinal.Views.CustomRecyclerViewAdapter;
@@ -74,6 +72,7 @@ public class SavingsTrackerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_savings_tracker, container, false);
 
+        // set OnClick for creating new savings and navagate to create new savings fragment
 
         Button newButton = view.findViewById(R.id.newSavingsButton);
         newButton.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +86,8 @@ public class SavingsTrackerFragment extends Fragment {
 
         ArrayList<Saving> savings = db.getAllSavings();
         db.close();
+
+        // import recycler view and create and set adapter and add arrayList savings
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler);
         CustomRecyclerViewAdapter adapter = new CustomRecyclerViewAdapter(savings, getActivity());

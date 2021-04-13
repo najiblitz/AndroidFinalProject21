@@ -18,6 +18,7 @@ import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Transaction;
 import com.example.androidfinal.R;
 
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the  factory method to
@@ -52,17 +53,20 @@ public class CreateTransactionFragment extends Fragment {
                     transaction.setDate(date.getText().toString());
                     transaction.setTransactionName(name.getText().toString());
                     transaction.setAmount(Double.parseDouble(amount.getText().toString()));
-                    Database db = new Database(getContext());
 
+                    // add new transaction to database
+
+                    Database db = new Database(getContext());
 
                     db.addTransaction(transaction);
                     db.close();
 
-                    Navigation.findNavController(view).popBackStack();
+//                    Navigation.findNavController(view).popBackStack();
 
                 }
             });
 
+            // Cancel button (return to previous page)
 
             cancel.setOnClickListener(new View.OnClickListener() {
                 @Override

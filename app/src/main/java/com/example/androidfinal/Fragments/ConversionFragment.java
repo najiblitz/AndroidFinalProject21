@@ -1,6 +1,8 @@
 package com.example.androidfinal.Fragments;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -21,6 +24,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.androidfinal.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,10 +89,12 @@ public class ConversionFragment extends Fragment {
         boolean textSize = sharedPrefs.getBoolean("textSize", false);
         boolean roundUp = sharedPrefs.getBoolean("roundUp", false);
 
-        // Set Spinners to display the Currencies to choose from
+        // Set Spinners to display the different Currencies to choose from
 
         Spinner currencyFrom = view.findViewById(R.id.oldCurrency);
         Spinner currencyTo = view.findViewById(R.id.newCurrency);
+
+        // create adapter for the spinner options
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getContext(), android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.currencies));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -98,14 +104,18 @@ public class ConversionFragment extends Fragment {
         TextView amountToConvert = view.findViewById(R.id.amountToConvert);
         TextView amountConverted = view.findViewById(R.id.amountConverted);
 
+        // set OnClick on convert button to change amount to new exchanged currency and display
 
-        Button button = view.findViewById(R.id.convertButton);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button convertButton = view.findViewById(R.id.convertButton);
+        convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // add API
 
                 String apiKey = "https://v6.exchangerate-api.com/v6/6c8faa9bd56e03f3481bdecd/latest/";
+
+                // Create new queue and request
 
                 RequestQueue queue = Volley.newRequestQueue(getContext());
 
@@ -113,9 +123,13 @@ public class ConversionFragment extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            // get conversion rates from API
                             JSONObject mainObject = response.getJSONObject("conversion_rates");
 
+                            // find and set converted amount
                             double convertedAmount = Double.parseDouble(amountToConvert.getText().toString()) * mainObject.getDouble(currencyTo.getSelectedItem().toString());
+
+                            // settings for rounding up tp nearest whole amount
 
                             if (roundUp) {
                                 amountConverted.setText((int) convertedAmount + "");
@@ -138,14 +152,33 @@ public class ConversionFragment extends Fragment {
 
         });
 
+        ImageButton rateButton = view.findViewById(R.id.rateButton);
+        rateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri website = Uri.parse("http://www.moneycents.com");
+                Intent intent = new Intent(Intent.ACTION_VIEW, website);
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
+                } else {
+                    Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
+
         // Settings
+
+        TextView textView = view.findViewById(R.id.txtV3);
+
 
         if (textSize) {
             amountToConvert.setTextSize(35);
             amountConverted.setTextSize(35);
+            textView.setTextSize(35);
         } else {
             amountToConvert.setTextSize(25);
             amountConverted.setTextSize(25);
+            textView.setTextSize(25);
         }
 
         return view;

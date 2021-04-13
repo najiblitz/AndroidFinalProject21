@@ -68,7 +68,6 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
 
         protected TextView title;
         protected TextView savingsAmount;
-        //this
         protected TextView goalAmount;
         protected ImageView edit;
 
@@ -76,13 +75,13 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.savingsTitle);
-            // and this
             this.savingsAmount = itemView.findViewById(R.id.savingsAmount);
             this.goalAmount = itemView.findViewById(R.id.transAmount);
             this.edit = itemView.findViewById(R.id.editAmount);
             itemView.setOnLongClickListener(this);
         }
 
+        // add onLongClick for deleting an entry and add alert for deletion
         @Override
         public boolean onLongClick(View v) {
             new AlertDialog.Builder(context)

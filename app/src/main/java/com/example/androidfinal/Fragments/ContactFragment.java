@@ -19,10 +19,10 @@ import com.google.android.material.snackbar.Snackbar;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CreditsFragment#newInstance} factory method to
+ * Use the {@link ContactFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreditsFragment extends Fragment {
+public class ContactFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,7 +33,7 @@ public class CreditsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CreditsFragment() {
+    public ContactFragment() {
         // Required empty public constructor
     }
 
@@ -43,11 +43,11 @@ public class CreditsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment CreditsFragment.
+     * @return A new instance of fragment ContactFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static CreditsFragment newInstance(String param1, String param2) {
-        CreditsFragment fragment = new CreditsFragment();
+    public static ContactFragment newInstance(String param1, String param2) {
+        ContactFragment fragment = new ContactFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -68,17 +68,17 @@ public class CreditsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_credits, container, false);
+        View view = inflater.inflate(R.layout.fragment_contact, container, false);
 
         // Add Settings
 
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean textSize = sharedPrefs.getBoolean("textSize", false);
 
+        // set share intent
 
-        ImageButton button = view.findViewById(R.id.shareButton);
-
-        button.setOnClickListener(new View.OnClickListener() {
+        ImageButton shareButton = view.findViewById(R.id.shareButton);
+        shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -91,19 +91,57 @@ public class CreditsFragment extends Fragment {
                 }
             }});
 
+        // set email intent
 
-        TextView txt1 = view.findViewById(R.id.ccredits1);
-        TextView txt11 = view.findViewById(R.id.ccredits11);
-        TextView txt111 = view.findViewById(R.id.ccredits111);
+        ImageButton emailButton = view.findViewById(R.id.emailButton);
+        emailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String[] emailAddress = {"w0549527@myscc.ca"};
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("mailto:"));
+                intent.putExtra(Intent.EXTRA_EMAIL, emailAddress);
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Question/Comment from Money Cents App");
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
+                } else {
+                    Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        // add twitter button to launch twitter page on click
+
+        ImageButton twitterButton = view.findViewById(R.id.twitterButton);
+        twitterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.twitter.com/moneycents/"));
+                intent.setPackage("com.twitter.android");
+                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
+                    startActivity(intent);
+                } else {
+                    Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // Settings
+
+        TextView txt1 = view.findViewById(R.id.textView112);
+        TextView txt2 = view.findViewById(R.id.ccredits111);
+        TextView txt3 = view.findViewById(R.id.ccredits1111);
 
         if (textSize) {
             txt1.setTextSize(38);
-            txt11.setTextSize(38);
-            txt111.setTextSize(38);
+            txt2.setTextSize(38);
+            txt3.setTextSize(38);
+
         } else {
             txt1.setTextSize(30);
-            txt11.setTextSize(30);
-            txt111.setTextSize(30);
+            txt2.setTextSize(30);
+            txt3.setTextSize(30);
 
         }
 

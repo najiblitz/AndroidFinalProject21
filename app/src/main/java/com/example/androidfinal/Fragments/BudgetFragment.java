@@ -71,6 +71,8 @@ public class BudgetFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_budget, container, false);
 
+        // import text ids
+
         EditText salary = view.findViewById(R.id.salary);
         TextView salaryUpdate = view.findViewById(R.id.salaryUpdate);
         EditText home = view.findViewById(R.id.homeCost);
@@ -97,9 +99,12 @@ public class BudgetFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Database db = new Database(getContext());
 
                 Budget budget = db.getAllBudgets().get(0);
+
+                // set all editable text to database
 
                 budget.setSalary(salary.getText().toString().equals("") ? 0: Double.parseDouble(salary.getText().toString()));
 
@@ -127,18 +132,24 @@ public class BudgetFragment extends Fragment {
 
                 salaryUpdate.setText(String.format("%.2f",newSalary));
 
+                // If statement to change text red/green if amount left is positive/negative
                 if (newSalary < 0) {
                     salaryUpdate.setTextColor(Color.RED);
                 } else {
                     salaryUpdate.setTextColor(Color.parseColor("#66CD00"));
                 }
 
+                // update budget
+
                 db.updateBudget(budget);
+
                 db.close();
             }
         });
 
         Database db = new Database(getContext());
+
+        // if there's no values, add as new budget
 
         if (db.getAllBudgets().isEmpty()) {
             db.addBudget(new Budget());
@@ -168,6 +179,8 @@ public class BudgetFragment extends Fragment {
 
 
         db.close();
+
+
 
         TextView homeTitle = view.findViewById(R.id.textView182);
         TextView carTitle = view.findViewById(R.id.textView1822);

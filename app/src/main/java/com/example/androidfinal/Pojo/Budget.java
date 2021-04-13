@@ -5,6 +5,13 @@ import android.os.Parcelable;
 
 public class Budget implements Parcelable {
 
+    /**
+     * This class is a pojo that represents each budget
+     * @author najiblitz
+     * @version 1.0
+     *
+     */
+
     private int id;
 
     // salary

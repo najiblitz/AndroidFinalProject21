@@ -1,4 +1,4 @@
-package com.example.androidfinal;
+package com.example.androidfinal.Views;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.androidfinal.Pojo.Transaction;
+import com.example.androidfinal.R;
 
 import java.util.ArrayList;
 

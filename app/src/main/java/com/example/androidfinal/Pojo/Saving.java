@@ -5,6 +5,13 @@ import android.os.Parcelable;
 
 public class Saving implements Parcelable {
 
+    /**
+     * This class is a pojo that represents each saving
+     * @author najiblitz
+     * @version 1.0
+     *
+     */
+
     private int id;
     private String title;
     private double haveAmount;

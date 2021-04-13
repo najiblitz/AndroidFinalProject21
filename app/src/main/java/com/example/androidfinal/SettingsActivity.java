@@ -1,14 +1,13 @@
 package com.example.androidfinal;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.Navigation;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.SwitchPreference;
 
 import com.example.androidfinal.Pojo.Budget;
 import com.example.androidfinal.Pojo.Transaction;
@@ -47,29 +46,40 @@ public class SettingsActivity extends AppCompatActivity {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
 
-                    Database db = new Database(getContext());
+                    // create Alert Dialog to ask user to confirm reset
 
-                    ArrayList<Budget> budgets = db.getAllBudgets();
-                    ArrayList<Transaction> transactions = db.getAllTransactions();
+                    new AlertDialog.Builder(getContext())
+                            .setTitle("Delete")
+                            .setMessage("Are you sure you want to reset?")
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Database db = new Database(getContext());
 
-                    for (Budget budget : budgets) {
+                                    ArrayList<Budget> budgets = db.getAllBudgets();
+                                    ArrayList<Transaction> transactions = db.getAllTransactions();
 
-                        db.deleteBudget(budget.getId());
+                                    // delete budgets on click
+
+                                    for (Budget budget : budgets) {
+                                        db.deleteBudget(budget.getId());
+                                    }
+
+                                    // delete transactions on click
+
+                                    for (Transaction transaction : transactions) {
+                                        db.deleteTransaction(transaction.getId());
+                                    }
+
+                                    db.close();
+                                }
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
+                    return false;
                     }
-
-                    for (Transaction transaction : transactions) {
-
-                        db.deleteTransaction(transaction.getId());
-                    }
-
-                    db.close();
-
-                    return true;
-                }
             });
-
-
-
 
         }
     }

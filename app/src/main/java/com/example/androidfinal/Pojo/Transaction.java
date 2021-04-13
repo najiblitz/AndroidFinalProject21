@@ -5,6 +5,13 @@ import android.os.Parcelable;
 
 public class Transaction implements Parcelable {
 
+    /**
+     * This class is a pojo that represents each transaction
+     * @author najiblitz
+     * @version 1.0
+     *
+     */
+
     private int id;
     private String date;
     private String transactionName;

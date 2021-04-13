@@ -1,6 +1,5 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
+    
     <SwitchPreference
         app:defaultValue="false"
         app:key="textSize"
@@ -15,13 +14,5 @@
         app:title="Reset Month"
         app:key="resetMonth"
         app:summary="Resets Transaction Tracker &amp; Budget Tracker for the month" />
-
-<!--    <Preference-->
-<!--        app:title="Credits"-->
-<!--        app:key="credits" />-->
-
-
-
-
 
 </PreferenceScreen>

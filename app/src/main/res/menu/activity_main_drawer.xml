@@ -35,8 +35,8 @@
             android:title="@string/nav_billing" />
 
         <item
-            android:id="@+id/nav_credits"
+            android:id="@+id/nav_contact"
             android:icon="@drawable/ic_baseline_info_24"
-            android:title="@string/nav_credits" />
+            android:title="@string/nav_contact_us" />
     </group>
 </menu>

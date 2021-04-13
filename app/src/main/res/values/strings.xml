@@ -28,6 +28,7 @@
     <string name="nav_credits">Credits</string>
     <string name="nav_transaction">Transactions</string>
     <string name="nav_conversion">Currency Converter</string>
+    <string name="nav_contact_us">Contact Us</string>
 
     <string name="newText">New</string>
     <string name="cancel">Cancel</string>
@@ -52,10 +53,16 @@
 
     // Credits
 
-    <string name="credits">Programmed by Amanda Gayer</string>
-    <string name="credits1">All images created by Amanda Gayer</string>
+    <string name="credits">Programmed by</string>
+    <string name="credits1">All images created by</string>
+    <string name="name">Amanda Gayer</string>
+
+
     <string name="credits2">Share our app with a friend!</string>
+    <string name="credits3">Question or Concern about the app? Email us!</string>
+    <string name="credits4">Check out a list of ALL exchange rates</string>
     <string name="title_activity_settings">SettingsActivity</string>
+
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>

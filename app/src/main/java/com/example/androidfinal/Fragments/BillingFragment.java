@@ -1,28 +1,22 @@
 package com.example.androidfinal.Fragments;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.preference.PreferenceManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
 
 import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
 import com.example.androidfinal.Views.BillingViewPagerFragment;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -82,24 +76,8 @@ public class BillingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_billing, container, false);
 
-        ImageButton twitterButton = view.findViewById(R.id.twitterButton);
-        twitterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.twitter.com/moneycents/"));
-                intent.setPackage("com.twitter.android");
-                if(intent.resolveActivity(getActivity().getPackageManager()) != null){
-                    startActivity(intent);
-                } else {
-                    Snackbar.make(getView(), "No app installed", Snackbar.LENGTH_SHORT).show();
-                }
-            }
-        });
 
-
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean textSize = sharedPrefs.getBoolean("textSize", false);
-
+        // Add Viewpager, create and set adapter and set transformer
 
         ViewPager2 viewPager = view.findViewById(R.id.billingViewpager);
         viewPager.setPageTransformer(new DepthPageTransformer());
@@ -130,18 +108,20 @@ public class BillingFragment extends Fragment {
         @Override
         public Fragment createFragment(int position) {
 
-//
+
+            // add content to viewpager
+
                 switch (position) {
                     case 0:
-                        return BillingViewPagerFragment.newInstance("Bank of Montreal", "555667777", "www.bmo.com");
+                        return BillingViewPagerFragment.newInstance("Bank of Montreal", "555-666-7777", "www.bmo.com");
                     case 1:
-                        return BillingViewPagerFragment.newInstance("TD Bank", "555667777", "ww.td.com");
+                        return BillingViewPagerFragment.newInstance("TD Bank", "555-666-7777", "ww.td.com");
                     case 2:
-                        return BillingViewPagerFragment.newInstance("Scotia Bank", "555667777", "www.scotiabank.com");
+                        return BillingViewPagerFragment.newInstance("Scotia Bank", "555-666-7777", "www.scotiabank.com");
                     case 3:
-                        return BillingViewPagerFragment.newInstance("CIBC", "555667777", "www.cibc.com");
+                        return BillingViewPagerFragment.newInstance("CIBC", "555-666-7777", "www.cibc.com");
                     case 4:
-                        return BillingViewPagerFragment.newInstance("RBC", "555667777","www.rbc.com");
+                        return BillingViewPagerFragment.newInstance("RBC", "555-666-7777","www.rbc.com");
                     default:
                         return BillingViewPagerFragment.newInstance("Error", "404", "Nothing Found");
                 }
@@ -155,6 +135,8 @@ public class BillingFragment extends Fragment {
         }
 
     }
+
+    // Create transformer
 
     public class DepthPageTransformer implements ViewPager2.PageTransformer {
         private static final float MIN_SCALE = 0.75f;

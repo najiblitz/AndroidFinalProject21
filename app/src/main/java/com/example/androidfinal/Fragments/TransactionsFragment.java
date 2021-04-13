@@ -1,11 +1,8 @@
 package com.example.androidfinal.Fragments;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
@@ -15,17 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import com.example.androidfinal.CustomTransRecyclerViewAdapter;
+import com.example.androidfinal.Views.CustomTransRecyclerViewAdapter;
 import com.example.androidfinal.Database;
-import com.example.androidfinal.Pojo.Saving;
 import com.example.androidfinal.Pojo.Transaction;
 import com.example.androidfinal.R;
-import com.example.androidfinal.Views.CustomRecyclerViewAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -103,6 +95,9 @@ public class TransactionsFragment extends Fragment {
 
         ArrayList<Transaction> transactions = db.getAllTransactions();
         db.close();
+
+        // create and set adapter for recycler view and add transactions ArrayList
+
         RecyclerView recyclerView = view.findViewById(R.id.transRecycler);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

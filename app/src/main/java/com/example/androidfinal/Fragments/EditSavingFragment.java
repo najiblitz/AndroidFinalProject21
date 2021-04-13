@@ -39,7 +39,6 @@ public class EditSavingFragment extends Fragment {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean textSize = sharedPrefs.getBoolean("textSize", false);
 
-
         saving = getArguments().getParcelable(SAVING);
 
         EditText haveAmount = view.findViewById(R.id.newAmountHave);
@@ -53,10 +52,15 @@ public class EditSavingFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                // set new values from editText
+
                 if (saving != null) {
                     saving.setHaveAmount(Double.parseDouble(haveAmount.getText().toString()));
                     saving.setGoalAmount(Double.parseDouble(goalAmount.getText().toString()));
                 }
+
+                // update savings in database
+
                 Database db = new Database(getContext());
                 db.updateSaving(saving);
                 db.close();

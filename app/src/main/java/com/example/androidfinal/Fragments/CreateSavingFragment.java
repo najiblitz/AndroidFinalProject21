@@ -51,18 +51,23 @@ public class CreateSavingFragment extends Fragment {
 
         saving = new Saving();
 
+        // onClick to submit new Saving
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // set text values
 
                 saving.setTitle(title.getText().toString());
                 saving.setHaveAmount(Double.parseDouble(haveAmount.getText().toString()));
                 saving.setGoalAmount(Double.parseDouble(goalAmount.getText().toString()));
 
+                // get context from database
+
                 Database db = new Database(getContext());
                 db.addSaving(saving);
                 db.close();
-
 
                 Navigation.findNavController(view).popBackStack();
 
