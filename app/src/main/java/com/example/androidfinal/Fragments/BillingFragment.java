@@ -35,7 +35,6 @@ import java.util.ArrayList;
 public class BillingFragment extends Fragment {
 
     ArrayList<Billing> billings;
-    ViewPager2 viewPager2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

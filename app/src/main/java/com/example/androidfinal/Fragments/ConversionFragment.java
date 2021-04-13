@@ -79,8 +79,10 @@ public class ConversionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_conversion, container, false);
 
+        // Add Settings for fragment
+
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean sizeOption = sharedPrefs.getBoolean("textSize", false);
+        boolean textSize = sharedPrefs.getBoolean("textSize", false);
         boolean roundUp = sharedPrefs.getBoolean("roundUp", false);
 
         // Set Spinners to display the Currencies to choose from
@@ -116,9 +118,9 @@ public class ConversionFragment extends Fragment {
                             double convertedAmount = Double.parseDouble(amountToConvert.getText().toString()) * mainObject.getDouble(currencyTo.getSelectedItem().toString());
 
                             if (roundUp) {
-                                amountConverted.setText(String.format("%.2f", convertedAmount));
-                            } else {
                                 amountConverted.setText((int) convertedAmount + "");
+                            } else {
+                                amountConverted.setText(String.format("%.2f", convertedAmount));
                             }
 
                         } catch (JSONException e) {
@@ -135,6 +137,16 @@ public class ConversionFragment extends Fragment {
             }
 
         });
+
+        // Settings
+
+        if (textSize) {
+            amountToConvert.setTextSize(35);
+            amountConverted.setTextSize(35);
+        } else {
+            amountToConvert.setTextSize(25);
+            amountConverted.setTextSize(25);
+        }
 
         return view;
     }

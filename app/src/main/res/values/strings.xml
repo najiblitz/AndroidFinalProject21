@@ -22,9 +22,10 @@
     <string name="nav_subtitle">Make Money Make Sense</string>
 
     <string name="nav_home">Home</string>
-    <string name="nav_billing">Billing Contacts</string>
+    <string name="nav_billing">Banking Contacts</string>
     <string name="nav_savings">Savings Tracker</string>
     <string name="nav_budget">Budget Tracker</string>
+    <string name="nav_credits">Credits</string>
     <string name="nav_transaction">Transactions</string>
     <string name="nav_conversion">Currency Converter</string>
 

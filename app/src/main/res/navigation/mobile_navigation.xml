@@ -71,13 +71,7 @@
         android:id="@+id/nav_billing"
         android:name="com.example.androidfinal.Fragments.BillingFragment"
         android:label="@string/nav_billing"
-        tools:layout="@layout/fragment_billing" >
-        <action
-            android:id="@+id/action_nav_billing_to_createBillingFragment"
-            app:destination="@id/createBillingFragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit" />
-    </fragment>
+        tools:layout="@layout/fragment_billing" />
     <fragment
         android:id="@+id/nav_conversion"
         android:name="com.example.androidfinal.Fragments.ConversionFragment"
@@ -94,7 +88,7 @@
         android:label="fragment_edit_saving"
         tools:layout="@layout/fragment_edit_saving" />
     <fragment
-        android:id="@+id/creditsFragment"
+        android:id="@+id/nav_credits"
         android:name="com.example.androidfinal.Fragments.CreditsFragment"
         android:label="fragment_credits"
         tools:layout="@layout/fragment_credits" />
@@ -103,9 +97,4 @@
         android:name="com.example.androidfinal.Fragments.CreateTransactionFragment"
         android:label="fragment_create_transaction"
         tools:layout="@layout/fragment_create_transaction" />
-    <fragment
-        android:id="@+id/createBillingFragment"
-        android:name="com.example.androidfinal.Fragments.CreateBillingFragment"
-        android:label="fragment_create_billing"
-        tools:layout="@layout/fragment_create_billing" />
 </navigation>

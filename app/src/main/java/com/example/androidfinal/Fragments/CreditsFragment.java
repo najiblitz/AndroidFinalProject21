@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.androidfinal.R;
 import com.google.android.material.snackbar.Snackbar;
@@ -69,6 +70,12 @@ public class CreditsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_credits, container, false);
 
+        // Add Settings
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean textSize = sharedPrefs.getBoolean("textSize", false);
+
+
         ImageButton button = view.findViewById(R.id.shareButton);
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -84,10 +91,21 @@ public class CreditsFragment extends Fragment {
                 }
             }});
 
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        boolean sizeOption = sharedPrefs.getBoolean("textSize", false);
 
+        TextView txt1 = view.findViewById(R.id.ccredits1);
+        TextView txt11 = view.findViewById(R.id.ccredits11);
+        TextView txt111 = view.findViewById(R.id.ccredits111);
 
+        if (textSize) {
+            txt1.setTextSize(38);
+            txt11.setTextSize(38);
+            txt111.setTextSize(38);
+        } else {
+            txt1.setTextSize(30);
+            txt11.setTextSize(30);
+            txt111.setTextSize(30);
+
+        }
 
         return view;
     }

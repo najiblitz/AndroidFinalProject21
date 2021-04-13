@@ -8,10 +8,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +85,12 @@ public class TransactionsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_transactions, container, false);
 
+        // Add Settings
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean textSize = sharedPrefs.getBoolean("textSize", false);
+
+
         Button button = view.findViewById(R.id.newTransbutton);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,10 +115,6 @@ public class TransactionsFragment extends Fragment {
 
 
 }
-//            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-//
-
-
 
 
 

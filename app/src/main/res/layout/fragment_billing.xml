@@ -47,12 +47,6 @@
         android:src="@drawable/twitter" />
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/light"
-        android:id="@+id/tabLayout" />
-
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/billingViewpager"
         android:layout_width="match_parent"

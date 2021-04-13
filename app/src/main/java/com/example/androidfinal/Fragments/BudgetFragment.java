@@ -1,9 +1,11 @@
 package com.example.androidfinal.Fragments;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -166,6 +168,64 @@ public class BudgetFragment extends Fragment {
 
 
         db.close();
+
+        TextView homeTitle = view.findViewById(R.id.textView182);
+        TextView carTitle = view.findViewById(R.id.textView1822);
+        TextView dailyTitle = view.findViewById(R.id.textView82);
+
+
+        // Settings
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean textSize = sharedPrefs.getBoolean("textSize", false);
+
+
+        if (textSize) {
+            home.setTextSize(27);
+            electricity.setTextSize(27);
+            oil.setTextSize(27);
+            tv.setTextSize(27);
+            phone.setTextSize(27);
+            homeRepairs.setTextSize(27);
+            homeOther.setTextSize(27);
+            car.setTextSize(27);
+            insurance.setTextSize(27);
+            gas.setTextSize(27);
+            carRepair.setTextSize(27);
+            carOther.setTextSize(27);
+            dining.setTextSize(27);
+            groceries.setTextSize(27);
+            beauty.setTextSize(27);
+            activities.setTextSize(27);
+            shows.setTextSize(27);
+            otherDaily.setTextSize(27);
+            homeTitle.setTextSize(27);
+            carTitle.setTextSize(27);
+            dailyTitle.setTextSize(27);
+        } else {
+            home.setTextSize(20);
+            electricity.setTextSize(20);
+            oil.setTextSize(20);
+            tv.setTextSize(20);
+            phone.setTextSize(20);
+            homeRepairs.setTextSize(20);
+            homeOther.setTextSize(20);
+            car.setTextSize(20);
+            insurance.setTextSize(20);
+            gas.setTextSize(20);
+            carRepair.setTextSize(20);
+            carOther.setTextSize(20);
+            dining.setTextSize(20);
+            groceries.setTextSize(20);
+            beauty.setTextSize(20);
+            activities.setTextSize(20);
+            shows.setTextSize(20);
+            otherDaily.setTextSize(20);
+            homeTitle.setTextSize(20);
+            carTitle.setTextSize(20);
+            dailyTitle.setTextSize(20);
+        }
+
 
 
 

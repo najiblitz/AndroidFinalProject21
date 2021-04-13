@@ -1,9 +1,11 @@
 package com.example.androidfinal.Fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,6 +36,11 @@ public class CreateSavingFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_saving, container, false);
+
+        // Add Settings
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean textSize = sharedPrefs.getBoolean("textSize", false);
 
         EditText title = view.findViewById(R.id.transDate);
         EditText haveAmount = view.findViewById(R.id.transName);
@@ -68,6 +75,24 @@ public class CreateSavingFragment extends Fragment {
                 Navigation.findNavController(view).popBackStack();
             }
         });
+
+
+        // Settings
+
+        EditText text1 = view.findViewById(R.id.textView45);
+        EditText text2 = view.findViewById(R.id.textView6);
+        EditText text3 = view.findViewById(R.id.textView7);
+
+        if (textSize) {
+            text1.setTextSize(32);
+            text2.setTextSize(32);
+            text3.setTextSize(32);
+        } else {
+            text1.setTextSize(25);
+            text2.setTextSize(25);
+            text3.setTextSize(25);
+
+        }
 
         return view;
     }
