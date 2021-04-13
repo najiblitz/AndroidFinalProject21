@@ -26,7 +26,7 @@ Android 6.0 Marshmellow
 
 # Screenshots
 
-<img src="https://user-images.githubusercontent.com/72535138/114595368-4e543d80-9c5c-11eb-9c55-3f3215e2fc93.png" height="400" width="200"> <img src="https://user-images.githubusercontent.com/72535138/114598898-6c23a180-9c60-11eb-951f-cadd083ffd55.gif" height="400" width="200"> <img src="https://user-images.githubusercontent.com/72535138/114594400-37611b80-9c5b-11eb-81f7-504013bbfe9e.png" height="400" width="200"> <img src="(https://user-images.githubusercontent.com/72535138/114599208-ce7ca200-9c60-11eb-8514-c4b2f6d4dc5d.gif" height="400" width="200">  
+<img src="https://user-images.githubusercontent.com/72535138/114595368-4e543d80-9c5c-11eb-9c55-3f3215e2fc93.png" height="400" width="200"> <img src="https://user-images.githubusercontent.com/72535138/114598898-6c23a180-9c60-11eb-951f-cadd083ffd55.gif" height="400" width="200"> <img src="https://user-images.githubusercontent.com/72535138/114594400-37611b80-9c5b-11eb-81f7-504013bbfe9e.png" height="400" width="200"> <img src="https://user-images.githubusercontent.com/72535138/114599208-ce7ca200-9c60-11eb-8514-c4b2f6d4dc5d.gif" height="400" width="200">  
 <img src="https://user-images.githubusercontent.com/72535138/114597802-2e724900-9c5f-11eb-83ad-640d55a41a8c.png" height="400" width="200">
 
 
