@@ -11,19 +11,29 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_nav_home_to_nav_budget"
-            app:destination="@id/nav_budget" />
+            app:destination="@id/nav_budget"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_home_to_nav_savings"
-            app:destination="@id/nav_savings" />
+            app:destination="@id/nav_savings"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_home_to_nav_transactions"
-            app:destination="@id/nav_transactions" />
+            app:destination="@id/nav_transactions"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_home_to_nav_conversion"
-            app:destination="@id/nav_conversion" />
+            app:destination="@id/nav_conversion"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_home_to_nav_billing"
-            app:destination="@id/nav_billing" />
+            app:destination="@id/nav_billing"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/nav_budget"
@@ -37,10 +47,14 @@
         tools:layout="@layout/fragment_savings_tracker" >
         <action
             android:id="@+id/action_nav_savings_to_createUpdateSavingFragment"
-            app:destination="@id/createUpdateSavingFragment" />
+            app:destination="@id/createUpdateSavingFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_savings_to_editSavingFragment"
-            app:destination="@id/editSavingFragment" />
+            app:destination="@id/editSavingFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/nav_transactions"
@@ -49,7 +63,9 @@
         tools:layout="@layout/fragment_transactions" >
         <action
             android:id="@+id/action_nav_transactions_to_createTransactionFragment"
-            app:destination="@id/createTransactionFragment" />
+            app:destination="@id/createTransactionFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/nav_billing"
@@ -58,7 +74,9 @@
         tools:layout="@layout/fragment_billing" >
         <action
             android:id="@+id/action_nav_billing_to_createBillingFragment"
-            app:destination="@id/createBillingFragment" />
+            app:destination="@id/createBillingFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/nav_conversion"

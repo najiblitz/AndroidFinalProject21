@@ -28,7 +28,7 @@ public class CustomTransRecyclerViewAdapter extends RecyclerView.Adapter<CustomT
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_transaction, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.transaction_item_view, parent, false);
         return new CustomViewHolder(view);
     }
 

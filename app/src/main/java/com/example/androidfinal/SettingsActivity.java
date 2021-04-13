@@ -39,6 +39,9 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
+
+            // set reset OnClick for deleting both Budget & transactions values
+
             Preference reset = findPreference("resetMonth");
             reset.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override

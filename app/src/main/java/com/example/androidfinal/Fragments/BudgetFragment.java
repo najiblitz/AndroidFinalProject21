@@ -96,6 +96,7 @@ public class BudgetFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Database db = new Database(getContext());
+
                 Budget budget = db.getAllBudgets().get(0);
 
                 budget.setSalary(salary.getText().toString().equals("") ? 0: Double.parseDouble(salary.getText().toString()));

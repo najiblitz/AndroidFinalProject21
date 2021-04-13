@@ -1,6 +1,7 @@
 package com.example.androidfinal.Fragments;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -8,28 +9,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.example.androidfinal.Database;
+
 import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
 import com.example.androidfinal.Views.BillingViewPagerFragment;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
-import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
 
-
-import static com.example.androidfinal.MainActivity.fab;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -101,13 +97,9 @@ public class BillingFragment extends Fragment {
             }
         });
 
-        fab.setImageResource(R.drawable.ic_baseline_add_24);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).navigate(R.id.action_nav_billing_to_createBillingFragment);
-            }
-        });
+
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean textSize = sharedPrefs.getBoolean("textSize", false);
 
 
         ViewPager2 viewPager = view.findViewById(R.id.billingViewpager);
@@ -116,6 +108,7 @@ public class BillingFragment extends Fragment {
         CustomViewPager2Adapter adapter = new CustomViewPager2Adapter(getActivity(), billings);
         viewPager.setPageTransformer(new DepthPageTransformer());
         viewPager.setAdapter(adapter);
+
 
         return view;
     }
