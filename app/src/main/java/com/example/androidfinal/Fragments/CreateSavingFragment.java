@@ -1,9 +1,11 @@
 package com.example.androidfinal.Fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,60 +13,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Saving;
 import com.example.androidfinal.R;
 
-//
-///**
-// * A simple {@link Fragment} subclass.
-// * Use the {@link CreateSavingFragment#newInstance} factory method to
-// * create an instance of this fragment.
-// */
+
+/**
+ * A simple {@link Fragment} subclass.
+ * create an instance of this fragment.
+ */
 public class CreateSavingFragment extends Fragment {
 
-//    // TODO: Rename parameter arguments, choose names that match
-//    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    // TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
-//
-//    public CreateSavingFragment() {
-//        // Required empty public constructor
-//    }
-//
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment CreateUpdateSavingFragment.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public static CreateSavingFragment newInstance(String param1, String param2) {
-//        CreateSavingFragment fragment = new CreateSavingFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
 
     Saving saving;
     public static final int UPDATE =1;
-    public static final int CREATE =2;
 
     public static final String SAVING = "Saving";
     public static final String ACTION_TYPE = "action_type";
@@ -75,24 +37,37 @@ public class CreateSavingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_saving, container, false);
 
-        EditText title = view.findViewById(R.id.savingsTitleNew);
+        // Add Settings
 
-        EditText haveAmount = view.findViewById(R.id.savingsStartAmount);
-        EditText goalAmount = view.findViewById(R.id.savingsGoalAmount);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        boolean textSize = sharedPrefs.getBoolean("textSize", false);
 
-        Button submit = view.findViewById(R.id.submitNewSavings);
-        Button cancel = view.findViewById(R.id.cancelNewSavings);
+        EditText title = view.findViewById(R.id.transDate);
+        EditText haveAmount = view.findViewById(R.id.transName);
+        EditText goalAmount = view.findViewById(R.id.transAmount);
+
+        Button submit = view.findViewById(R.id.submitNewTransaction);
+        Button cancel = view.findViewById(R.id.cancelNewTransaction);
 
         saving = new Saving();
-        submit.setText("Add New Goal");
+
+        // onClick to submit new Saving
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // set text values
+
                 saving.setTitle(title.getText().toString());
                 saving.setHaveAmount(Double.parseDouble(haveAmount.getText().toString()));
                 saving.setGoalAmount(Double.parseDouble(goalAmount.getText().toString()));
+
+                // get context from database
+
+                Database db = new Database(getContext());
+                db.addSaving(saving);
+                db.close();
 
                 Navigation.findNavController(view).popBackStack();
 
@@ -105,6 +80,24 @@ public class CreateSavingFragment extends Fragment {
                 Navigation.findNavController(view).popBackStack();
             }
         });
+
+
+        // Settings
+
+        EditText text1 = view.findViewById(R.id.textView45);
+        EditText text2 = view.findViewById(R.id.textView6);
+        EditText text3 = view.findViewById(R.id.textView7);
+
+        if (textSize) {
+            text1.setTextSize(32);
+            text2.setTextSize(32);
+            text3.setTextSize(32);
+        } else {
+            text1.setTextSize(25);
+            text2.setTextSize(25);
+            text3.setTextSize(25);
+
+        }
 
         return view;
     }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/light"
+    tools:context=".Fragments.BillingFragment">
+
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/textview_border"
+        android:padding="10dp"
+        android:text="@string/nav_billing"
+        android:textColor="@color/dark"
+        android:textSize="35sp"
+        android:layout_gravity="center" />
+
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/billingViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </androidx.viewpager2.widget.ViewPager2>
+
+</LinearLayout>

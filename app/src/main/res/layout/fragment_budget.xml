@@ -22,34 +22,74 @@
         android:layout_gravity="center"
         android:textSize="35sp" />
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
-    <TextView
-        android:id="@+id/textView02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Mortgage/Rent" />
 
-    <EditText
-        android:id="@+id/homeCosyt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:textAlignment="textEnd" />
+        <TextView
+            android:id="@+id/budgetTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:text="Monthly Salary"
+            android:textColor="@color/dark"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:width="180dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="$0.00"
+            android:textAlignment="textEnd"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/salaryUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="+/- $"
+            android:textStyle="bold"
+            android:textColor="@color/dark"
+            android:textSize="26sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/budgetTxt"
+            app:layout_constraintEnd_toStartOf="@+id/refreshButton"/>
+
+        <Button
+            android:id="@+id/refreshButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/primaryLight"
+            android:text="Update"
+            android:textColor="@color/dark"
+            android:textSize="25sp"
+            app:cornerRadius="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/budgetTxt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/salaryUpdate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
         android:layout_width="match_parent"
+        android:background="@drawable/textview_border"
         android:layout_height="wrap_content">
 
 
@@ -65,7 +105,12 @@
                     android:id="@+id/textView182"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="HOME EXPENSES" />
+                    android:textColor="@color/dark"
+                    android:textSize="26sp"
+                    android:paddingLeft="10dp"
+                    android:textStyle="bold"
+                    android:paddingTop="3dp"
+                    android:text="HOME" />
 
                 <TextView
                     android:id="@+id/textView312"
@@ -77,6 +122,9 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Mortgage/Rent" />
 
                 <EditText
@@ -84,13 +132,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:textSize="20dp"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
+
 
                 <TextView
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Electricity" />
 
                 <EditText
@@ -98,13 +153,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:textSize="20dp"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textView45"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Gas/Oil" />
 
                 <EditText
@@ -112,6 +173,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:textSize="20dp"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
 
@@ -119,6 +183,9 @@
                     android:id="@+id/textView9"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="TV" />
 
                 <EditText
@@ -126,6 +193,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:textSize="20dp"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
 
@@ -133,6 +203,9 @@
                     android:id="@+id/textView12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Phone/Internet" />
 
                 <EditText
@@ -140,6 +213,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:textSize="20dp"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
 
@@ -147,6 +223,9 @@
                     android:id="@+id/textView422"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Repairs/Maintenance" />
 
                 <EditText
@@ -154,6 +233,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:textSize="20dp"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
 
@@ -161,6 +243,9 @@
                     android:id="@+id/textView3212"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Other" />
 
                 <EditText
@@ -168,14 +253,30 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="numberDecimal" />
+                    android:text="0.00"
+                    android:textSize="20dp"
+                    android:width="120dp"
+                    android:inputType="numberDecimal"
+                    android:textAlignment="textEnd"/>
+
+
+
+
+
+
+
+
 
 
                 <TextView
                     android:id="@+id/textView1822"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="VEHICLE EXPENSES" />
+                    android:textColor="@color/dark"
+                    android:textStyle="bold"
+                    android:textSize="26sp"
+                    android:paddingLeft="10dp"
+                    android:text="VEHICLE" />
 
                 <TextView
                     android:id="@+id/textView3121"
@@ -187,19 +288,29 @@
                     android:id="@+id/textView29"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Car Payment" />
 
                 <EditText
-                    android:id="@+id/carCost"
+                    android:id="@+id/vehicleCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:textAlignment="textEnd"
+                    android:textSize="20dp"
+                    android:width="120dp"
                     android:inputType="numberDecimal" />
 
                 <TextView
                     android:id="@+id/textView72"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Insurance" />
 
                 <EditText
@@ -207,6 +318,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:textSize="20dp"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
 
@@ -214,6 +328,9 @@
                     android:id="@+id/textView32"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Gas" />
 
                 <EditText
@@ -221,13 +338,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
+                    android:textSize="20dp"
                     android:textAlignment="textEnd" />
 
                 <TextView
                     android:id="@+id/textView532"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Repair/Maintenance" />
 
                 <EditText
@@ -235,13 +358,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
+                    android:textSize="20dp"
                     android:textAlignment="textEnd" />
 
                 <TextView
                     android:id="@+id/textView5332"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Other" />
 
                 <EditText
@@ -249,15 +378,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:textSize="20dp"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
+
+
+
+
+
+
+
 
 
                 <TextView
                     android:id="@+id/textView82"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DAILY EXPENSES" />
+                    android:textStyle="bold"
+                    android:textColor="@color/dark"
+                    android:textSize="26sp"
+                    android:paddingLeft="10dp"
+                    android:text="DAILY" />
 
                 <TextView
                     android:id="@+id/textView311"
@@ -269,6 +412,9 @@
                     android:id="@+id/textView5232"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Dining" />
 
                 <EditText
@@ -276,19 +422,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:textSize="20dp"
                     android:inputType="numberDecimal"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:textAlignment="textEnd" />
 
                 <TextView
                     android:id="@+id/textView522"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Groceries" />
 
                 <EditText
                     android:id="@+id/groceriesCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
@@ -297,12 +452,18 @@
                     android:id="@+id/textView232"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Health/Beauty" />
 
                 <EditText
                     android:id="@+id/beautyCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:width="120dp"
+                    android:textSize="20dp"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
@@ -311,13 +472,19 @@
                     android:id="@+id/textView22"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Personal Supplies/Clothing" />
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
+                    android:text="Personal" />
 
                 <EditText
-                    android:id="@+id/clothingCost"
+                    android:id="@+id/personalCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:text="0.00"
+                    android:width="120dp"
+                    android:textSize="20dp"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
 
@@ -325,12 +492,18 @@
                     android:id="@+id/textView132"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Activities" />
 
                 <EditText
                     android:id="@+id/activitiesCost"
                     android:layout_width="wrap_content"
+                    android:textSize="20dp"
                     android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:ems="10"
                     android:inputType="numberDecimal"
                     android:textAlignment="textEnd" />
@@ -340,38 +513,44 @@
                     android:id="@+id/textView172"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Shows/Live Events" />
 
                 <EditText
                     android:id="@+id/showsCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textSize="20dp"
                     android:textAlignment="textEnd" />
 
                 <TextView
                     android:id="@+id/textView102"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:paddingLeft="25dp"
+                    android:textColor="@color/dark"
                     android:text="Other" />
 
                 <EditText
                     android:id="@+id/otherDailyCost"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:width="120dp"
                     android:ems="10"
                     android:inputType="numberDecimal"
+                    android:textSize="20dp"
                     android:textAlignment="textEnd" />
 
 
             </GridLayout>
-
-        <Button
-            android:id="@+id/refreshButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
 
     </ScrollView>
 

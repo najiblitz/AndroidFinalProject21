@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@color/light"
+    tools:context=".Views.BillingViewPagerFragment">
+
+
+    <TextView
+        android:id="@+id/companyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        android:textColor="@color/dark"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/billingTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Click to Visit or Call"
+        android:textColor="@color/dark"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/companyWebsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:autoLink="web"
+        android:textColorLink="@color/dark"
+        android:text="TextView"
+        android:textColor="@color/dark"/>
+
+
+    <TextView
+        android:id="@+id/companyPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textColorLink="@color/dark"
+        android:autoLink="phone"
+        android:layout_gravity="center"
+        android:textColor="@color/dark"
+        android:text="TextView"/>
+
+
+</LinearLayout>

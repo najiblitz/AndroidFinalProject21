@@ -22,11 +22,13 @@
     <string name="nav_subtitle">Make Money Make Sense</string>
 
     <string name="nav_home">Home</string>
-    <string name="nav_billing">Billing Contacts</string>
+    <string name="nav_billing">Banking Contacts</string>
     <string name="nav_savings">Savings Tracker</string>
     <string name="nav_budget">Budget Tracker</string>
+    <string name="nav_credits">Credits</string>
     <string name="nav_transaction">Transactions</string>
     <string name="nav_conversion">Currency Converter</string>
+    <string name="nav_contact_us">Contact Us</string>
 
     <string name="newText">New</string>
     <string name="cancel">Cancel</string>
@@ -48,6 +50,34 @@
         <item>AUD</item>
         <item>EUR</item>
     </string-array>
+
+    // Credits
+
+    <string name="credits">Programmed by</string>
+    <string name="credits1">All images created by</string>
+    <string name="name">Amanda Gayer</string>
+
+
+    <string name="credits2">Share our app with a friend!</string>
+    <string name="credits3">Question or Concern about the app? Email us!</string>
+    <string name="credits4">Check out a list of ALL exchange rates</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
 
 </resources>

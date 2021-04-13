@@ -3,12 +3,13 @@ package com.example.androidfinal.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 import com.example.androidfinal.R;
@@ -66,7 +67,15 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // Set Animations for buttons
+
+        Animation animationShort = AnimationUtils.loadAnimation(getContext(), R.anim.slide_short);
+        Animation animationMedium = AnimationUtils.loadAnimation(getContext(), R.anim.slide_medium);
+        Animation animationLong = AnimationUtils.loadAnimation(getContext(), R.anim.slide_long);
+
+
         Button budgetButton = view.findViewById(R.id.budgetButton);
+        budgetButton.startAnimation(animationShort);
         budgetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +84,7 @@ public class HomeFragment extends Fragment {
         });
 
         Button savingsButton = view.findViewById(R.id.savingsButton);
+        savingsButton.startAnimation(animationShort);
         savingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,6 +93,7 @@ public class HomeFragment extends Fragment {
         });
 
         Button transactionsButton = view.findViewById(R.id.transactionsButton);
+        transactionsButton.startAnimation(animationMedium);
         transactionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +102,7 @@ public class HomeFragment extends Fragment {
         });
 
         Button conversionButton = view.findViewById(R.id.conversionButton);
+        conversionButton.startAnimation(animationLong);
         conversionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,6 +111,7 @@ public class HomeFragment extends Fragment {
         });
 
         Button billingButton = view.findViewById(R.id.billingButton);
+        billingButton.startAnimation(animationLong);
         billingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

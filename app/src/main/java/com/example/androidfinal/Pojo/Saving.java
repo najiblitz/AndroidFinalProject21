@@ -5,13 +5,19 @@ import android.os.Parcelable;
 
 public class Saving implements Parcelable {
 
+    /**
+     * This class is a pojo that represents each saving
+     * @author najiblitz
+     * @version 1.0
+     *
+     */
+
     private int id;
     private String title;
     private double haveAmount;
     private double goalAmount;
 
     public Saving(String title, double haveAmount, double goalAmount) {
-
         this.title = title;
         this.haveAmount = haveAmount;
         this.goalAmount = goalAmount;

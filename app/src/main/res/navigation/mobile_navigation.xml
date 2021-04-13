@@ -11,19 +11,29 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_nav_home_to_nav_budget"
-            app:destination="@id/nav_budget" />
+            app:destination="@id/nav_budget"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_home_to_nav_savings"
-            app:destination="@id/nav_savings" />
+            app:destination="@id/nav_savings"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_home_to_nav_transactions"
-            app:destination="@id/nav_transactions" />
+            app:destination="@id/nav_transactions"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_home_to_nav_conversion"
-            app:destination="@id/nav_conversion" />
+            app:destination="@id/nav_conversion"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_home_to_nav_billing"
-            app:destination="@id/nav_billing" />
+            app:destination="@id/nav_billing"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/nav_budget"
@@ -37,21 +47,31 @@
         tools:layout="@layout/fragment_savings_tracker" >
         <action
             android:id="@+id/action_nav_savings_to_createUpdateSavingFragment"
-            app:destination="@id/createUpdateSavingFragment" />
+            app:destination="@id/createUpdateSavingFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_nav_savings_to_editSavingFragment"
-            app:destination="@id/editSavingFragment" />
+            app:destination="@id/editSavingFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
     </fragment>
     <fragment
         android:id="@+id/nav_transactions"
         android:name="com.example.androidfinal.Fragments.TransactionsFragment"
         android:label="@string/nav_transaction"
-        tools:layout="@layout/fragment_transactions" />
+        tools:layout="@layout/fragment_transactions" >
+        <action
+            android:id="@+id/action_nav_transactions_to_createTransactionFragment"
+            app:destination="@id/createTransactionFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit" />
+    </fragment>
     <fragment
         android:id="@+id/nav_billing"
-        android:name="com.example.androidfinal.Fragments.ContactFragment"
+        android:name="com.example.androidfinal.Fragments.BillingFragment"
         android:label="@string/nav_billing"
-        tools:layout="@layout/fragment_contact" />
+        tools:layout="@layout/fragment_billing" />
     <fragment
         android:id="@+id/nav_conversion"
         android:name="com.example.androidfinal.Fragments.ConversionFragment"
@@ -60,11 +80,21 @@
     <fragment
         android:id="@+id/createUpdateSavingFragment"
         android:name="com.example.androidfinal.Fragments.CreateSavingFragment"
-        android:label="fragment_create_update_saving"
+        android:label="Create Saving"
         tools:layout="@layout/fragment_create_saving" />
     <fragment
         android:id="@+id/editSavingFragment"
         android:name="com.example.androidfinal.Fragments.EditSavingFragment"
-        android:label="fragment_edit_saving"
+        android:label="Edit Saving"
         tools:layout="@layout/fragment_edit_saving" />
+    <fragment
+        android:id="@+id/nav_contact"
+        android:name="com.example.androidfinal.Fragments.ContactFragment"
+        android:label="Contact Us"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/createTransactionFragment"
+        android:name="com.example.androidfinal.Fragments.CreateTransactionFragment"
+        android:label="Create Transaction"
+        tools:layout="@layout/fragment_create_transaction" />
 </navigation>

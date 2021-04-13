@@ -80,4 +80,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newCurrency" />
 
+    <TextView
+        android:id="@+id/txtV3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/dark"
+        android:text="@string/credits4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/convertButton" />
+
+    <ImageButton
+        android:id="@+id/rateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="7dp"
+        android:background="@drawable/custom_circle"
+        android:src="@drawable/ic_baseline_language_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtV3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

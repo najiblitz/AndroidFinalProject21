@@ -1,4 +1,4 @@
-package com.example.androidfinal;
+package com.example.androidfinal.Views;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -14,8 +14,10 @@ import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.androidfinal.Database;
 import com.example.androidfinal.Fragments.CreateSavingFragment;
 import com.example.androidfinal.Pojo.Saving;
+import com.example.androidfinal.R;
 
 import java.util.ArrayList;
 
@@ -32,7 +34,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
     @NonNull
     @Override
     public CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.savings_item_view,null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.savings_item_view, parent, false);
         return new CustomViewHolder(view);
     }
 
@@ -42,7 +44,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
         Saving saving = savings.get(position);
         holder.title.setText(saving.getTitle());
         holder.savingsAmount.setText("$" + (int)  saving.getHaveAmount() + " / $" + saving.getGoalAmount());
-//        holder.goalAmount.setText(saving.getGoalAmount());
+
         holder.edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +68,7 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
 
         protected TextView title;
         protected TextView savingsAmount;
-        protected ImageView goalAmount;
+        protected TextView goalAmount;
         protected ImageView edit;
 
 
@@ -74,10 +76,12 @@ public class CustomRecyclerViewAdapter extends RecyclerView.Adapter<CustomRecycl
             super(itemView);
             this.title = itemView.findViewById(R.id.savingsTitle);
             this.savingsAmount = itemView.findViewById(R.id.savingsAmount);
+            this.goalAmount = itemView.findViewById(R.id.transAmount);
             this.edit = itemView.findViewById(R.id.editAmount);
             itemView.setOnLongClickListener(this);
         }
 
+        // add onLongClick for deleting an entry and add alert for deletion
         @Override
         public boolean onLongClick(View v) {
             new AlertDialog.Builder(context)

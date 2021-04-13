@@ -1,0 +1,11 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<Preference
+        app:title="@string/credits"
+        app:summary="@string/name" />
+
+<Preference
+        app:title="@string/credits1"
+        app:summary="@string/name" />
+
+</PreferenceScreen>

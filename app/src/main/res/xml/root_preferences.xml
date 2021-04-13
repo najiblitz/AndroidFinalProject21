@@ -1,0 +1,18 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <SwitchPreference
+        app:defaultValue="false"
+        app:key="textSize"
+        app:title="Large Text" />
+
+    <SwitchPreference
+        app:defaultValue="false"
+        app:key="roundUp"
+        app:title="Conversion, round up" />
+
+    <Preference
+        app:title="Reset Month"
+        app:key="resetMonth"
+        app:summary="Resets Transaction Tracker &amp; Budget Tracker for the month" />
+
+</PreferenceScreen>
