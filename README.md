@@ -10,13 +10,15 @@ There are many great tools built into the Money Cents app:
 
 Budget Tracker – With Money Cents’ budget tracker, you will never have to worry if you have enough at the end of the month for all your bills. Enter your monthly salary and as bills and expenses come in, add the amount to the correct category and you will receive a running total to let you know how much is left for savings.
 
-Goal Tracker – Ever want to save up for an expensive vacation or new car but don’t have the funds all at once? Not sure how to keep track of money put aside for it? With the goal tracker you can enter what your goal is, and whenever money is set aside for it, just add it to the total.
+Savings Tracker – Ever want to save up for an expensive vacation or new car but don’t have the funds all at once? Not sure how to keep track of money put aside for it? With the savings tracker you can enter what your goal is, and whenever money is set aside for it, just add it to the total.
 
-Transaction Tracker – Keep track of what you are spending where, or how often with the transaction tracker. Add expenses in by category and date and see how much groceries, or entertainment, etc., are costing a year. There’s no way to cut expenses if you don’t know where the funds are going!
+Transaction Tracker – Keep track of what you are spending where, or how often with the transaction tracker. Add expenses by date and see how much groceries, or entertainment, etc., are costing a year. There’s no way to cut expenses if you don’t know where the funds are going!
 
-Billing Contacts – There will never be a need to go through your web browser’s search engine every time you want to pay a bill or look for a contact number for any billing companies you deal with. Add any website link or phone number to a contact and keep an organized list all in one place.
+Banking Contacts – There will never be a need to go through your web browser’s search engine every time you want to banking information. With a quick banking guide, you can easily call or visit the website of all major banks in the area.
 
 Currency Converter – Money Cents’ currency converter will help you know what your money is worth around the world. Current version supports exchange between 6 countries. (CAD, USD, EUR, AUD, MXN, GBP)
+
+Contact - Ever need to get in touch with us, just head over to the Contact page!
 
 # Prerequisites 
 
