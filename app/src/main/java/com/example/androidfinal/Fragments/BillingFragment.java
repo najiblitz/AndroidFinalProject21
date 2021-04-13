@@ -39,7 +39,7 @@ import static com.example.androidfinal.MainActivity.fab;
 public class BillingFragment extends Fragment {
 
     ArrayList<Billing> billings;
-
+    ViewPager2 viewPager2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -108,14 +108,10 @@ public class BillingFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.action_nav_billing_to_createBillingFragment);
             }
         });
-        fab.show();
 
-        Database db = new Database(getContext());
-
-        billings = db.getAllBilling();
-        db.close();
 
         ViewPager2 viewPager = view.findViewById(R.id.billingViewpager);
+        viewPager.setPageTransformer(new DepthPageTransformer());
 
         CustomViewPager2Adapter adapter = new CustomViewPager2Adapter(getActivity(), billings);
         viewPager.setPageTransformer(new DepthPageTransformer());
@@ -126,10 +122,7 @@ public class BillingFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TabLayout tabLayout = view.findViewById(R.id.tabLayout);
-//        if (billings.size() != 0) {
-//            new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(billings.get(position).getCompanyName())).attach();
-//        }
+
     }
 
     public class CustomViewPager2Adapter extends FragmentStateAdapter {
@@ -148,28 +141,25 @@ public class BillingFragment extends Fragment {
 //
                 switch (position) {
                     case 0:
-                        return BillingViewPagerFragment.newInstance("lodj", "7555880959", "www.google.com");
-//                    case 1:
-//                        return viewpager2.newInstance(R.drawable.ali, "Ali Morshedlou", "Java Developer");
-//                    case 2:
-//                        return viewpager2.newInstance(R.drawable.christina, "Christina", "Swift Developer");
-//                    case 3:
-//                        return viewpager2.newInstance(R.drawable.tamarcus, "Tamarcus Brown", "Website Developer");
-//                    case 4:
-//                        return viewpager2.newInstance(R.drawable.banter, "Banter", "UI Designer");
+                        return BillingViewPagerFragment.newInstance("Bank of Montreal", "555667777", "www.bmo.com");
+                    case 1:
+                        return BillingViewPagerFragment.newInstance("TD Bank", "555667777", "ww.td.com");
+                    case 2:
+                        return BillingViewPagerFragment.newInstance("Scotia Bank", "555667777", "www.scotiabank.com");
+                    case 3:
+                        return BillingViewPagerFragment.newInstance("CIBC", "555667777", "www.cibc.com");
+                    case 4:
+                        return BillingViewPagerFragment.newInstance("RBC", "555667777","www.rbc.com");
                     default:
-                        return BillingViewPagerFragment.newInstance("Error", "Scott", "designer");
+                        return BillingViewPagerFragment.newInstance("Error", "404", "Nothing Found");
                 }
-
-
-//            return BillingViewPagerFragment.newInstance(billings.get(position).getCompanyName(), billings.get(position).getCompanyPhone(), billings.get(position).getCompanyWebsite());
 
         }
 
 
         @Override
         public int getItemCount() {
-            return billings.size();
+            return 5;
         }
 
     }
