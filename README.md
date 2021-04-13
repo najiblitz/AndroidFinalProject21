@@ -30,9 +30,8 @@ Android 6.0 Marshmellow
 <img src="https://user-images.githubusercontent.com/72535138/114595278-32509c00-9c5c-11eb-81c6-105f26e3e0cf.png" height="400" width="200">
 <img src="https://user-images.githubusercontent.com/72535138/114595316-409eb800-9c5c-11eb-9d97-82707ab247f4.png" height="400" width="200">
 <img src="https://user-images.githubusercontent.com/72535138/114595368-4e543d80-9c5c-11eb-9c55-3f3215e2fc93.png" height="400" width="200">
-<img src="https://user-images.githubusercontent.com/72535138/114595433-61ffa400-9c5c-11eb-80d9-08ac8e2c1aa1.png" height="400" width="200">
-<img src="ezgif com-gif-maker](https://user-images.githubusercontent.com/72535138/114597302-9b391380-9c5e-11eb-8ff7-8310863a92d7.gif" height="400" width="200">
 <img src="" height="400" width="200">
+<img src="ezgif com-gif-maker](https://user-images.githubusercontent.com/72535138/114597302-9b391380-9c5e-11eb-8ff7-8310863a92d7.gif" height="400" width="200"><img src="" height="400" width="200">
 
 # Author
 
