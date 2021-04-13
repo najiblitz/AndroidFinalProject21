@@ -16,6 +16,8 @@ import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.Pojo.Transaction;
 import com.example.androidfinal.R;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the  factory method to
@@ -24,7 +26,6 @@ import com.example.androidfinal.R;
 public class CreateTransactionFragment extends Fragment {
 
     Transaction transaction;
-    public static final int UPDATE =1;
 
     public static final String TRANSACTION = "Transaction";
     public static final String ACTION_TYPE = "action_type";
@@ -35,39 +36,41 @@ public class CreateTransactionFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_transaction, container, false);
 
-        EditText date = view.findViewById(R.id.transactionDate);
-        EditText name = view.findViewById(R.id.transactionName);
+        EditText date = view.findViewById(R.id.transDate);
+        EditText name = view.findViewById(R.id.transName);
         EditText amount = view.findViewById(R.id.transAmount);
 
         Button submit = view.findViewById(R.id.submitNewTransaction);
         Button cancel = view.findViewById(R.id.cancelNewTransaction);
 
-        transaction = new Transaction();
 
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Database db = new Database(getContext());
-                transaction.setDate(date.getText().toString());
-                transaction.setTransactionName(name.getText().toString());
-                transaction.setAmount(Double.parseDouble(amount.getText().toString()));
+            submit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//
+                    transaction.setDate(date.getText().toString());
+                    transaction.setTransactionName(name.getText().toString());
+                    transaction.setAmount(Double.parseDouble(amount.getText().toString()));
+                    Database db = new Database(getContext());
 
 
-                db.addTransaction(transaction);
-                db.close();
+                    db.addTransaction(transaction);
+                    db.close();
 
-                Navigation.findNavController(view).popBackStack();
-            }
-        });
+                    Navigation.findNavController(view).popBackStack();
 
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(view).popBackStack();
-            }
-        });
+                }
+            });
 
-        return view;
+
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Navigation.findNavController(view).popBackStack();
+                }
+            });
+//        }
+            return view;
 
     }
 }

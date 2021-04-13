@@ -32,11 +32,10 @@
         app:cornerRadius="15dp"
         android:text="Add" />
 
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/listview" />
+        android:layout_height="wrap_content"
+        android:id="@+id/transRecycler" />
 
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.example.androidfinal.Views;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,11 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
+import com.google.android.material.snackbar.Snackbar;
 
 
 import java.util.ArrayList;
@@ -25,9 +30,6 @@ import java.util.ArrayList;
  */
 public class BillingViewPagerFragment extends Fragment {
 
-    Billing billing;
-    private Context context;
-    private ArrayList<Billing> billings;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,7 +55,7 @@ public class BillingViewPagerFragment extends Fragment {
      * @return A new instance of fragment BillingViewPagerFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static BillingViewPagerFragment newInstance(String param1, String param2, String param3) {
+    public static BillingViewPagerFragment newInstance(String param1, String  param2, String param3) {
         BillingViewPagerFragment fragment = new BillingViewPagerFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
@@ -79,24 +81,21 @@ public class BillingViewPagerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_billing_view_pager, container, false);
 
-        TextView name = view.findViewById(R.id.companyName);
-        ImageButton phone = view.findViewById(R.id.companyPhone);
-        ImageButton website = view.findViewById(R.id.companyWebsite);
+        if(mParam1!=null){
+            TextView name = view.findViewById(R.id.companyName);
+            name.setText(mParam1);
+        }
+        if(mParam2!= null){
+            TextView phone = view.findViewById(R.id.companyPhone);
+            phone.setText(mParam2);
 
-        name.setText(billing.getCompanyName());
-        phone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        }
+        if(mParam3!= null){
+            TextView website = view.findViewById(R.id.companyWebsite);
+            website.setText(mParam3);
 
-            }
-        });
+        }
 
-        website.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
         return view;
     }

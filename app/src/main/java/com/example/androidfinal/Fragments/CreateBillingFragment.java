@@ -15,6 +15,8 @@ import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Billing;
 import com.example.androidfinal.R;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
@@ -29,6 +31,13 @@ public class CreateBillingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_create_billing, container, false);
 
+
+
+Database  db = new Database(getContext());
+
+        ArrayList<Billing> firstList = new ArrayList<>();
+        db.addBilling(new Billing("74034","Java Project",
+                "fvvfd"));
 
         EditText name = view.findViewById(R.id.billingName);
         EditText phone = view.findViewById(R.id.billingPhone);

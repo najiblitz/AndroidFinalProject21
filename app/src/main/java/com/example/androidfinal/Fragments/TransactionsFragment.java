@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -18,10 +20,12 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.androidfinal.CustomTransRecyclerViewAdapter;
 import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Saving;
 import com.example.androidfinal.Pojo.Transaction;
 import com.example.androidfinal.R;
+import com.example.androidfinal.Views.CustomRecyclerViewAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -93,44 +97,21 @@ public class TransactionsFragment extends Fragment {
 
         ArrayList<Transaction> transactions = db.getAllTransactions();
         db.close();
+        RecyclerView recyclerView = view.findViewById(R.id.transRecycler);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        ListView listView = view.findViewById(R.id.listview);
-
-
-        listView.setAdapter(new CustomListViewAdapter(getContext(), transactions));
+        recyclerView.setAdapter(new CustomTransRecyclerViewAdapter(transactions, getContext()));
 
         return view;
-
     }
 
-
-    public class CustomListViewAdapter extends ArrayAdapter<Transaction> {
-
-        public CustomListViewAdapter(@NonNull Context context, ArrayList<Transaction> infos) {
-            super(context, 0, infos);
-        }
-
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
-            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.listview_transaction, parent,false);
-            TextView date = convertView.findViewById(R.id.transactionDate);
-            date.setText(getItem(position).getDate());
-            TextView name = convertView.findViewById(R.id.transactionName);
-            name.setText(getItem(position).getTransactionName());
-            TextView amount = convertView.findViewById(R.id.transactionAmount);
-            amount.setText((int) getItem(position).getAmount());
-
-            return convertView;
-
-        }
-
-
-    }
 
 
 }
+//            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+//
+
 
 
 

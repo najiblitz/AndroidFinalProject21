@@ -38,8 +38,6 @@ import static com.example.androidfinal.MainActivity.fab;
  */
 public class BillingFragment extends Fragment {
 
-
-    ViewPager2 viewPager;
     ArrayList<Billing> billings;
 
 
@@ -119,7 +117,7 @@ public class BillingFragment extends Fragment {
 
         ViewPager2 viewPager = view.findViewById(R.id.billingViewpager);
 
-        CustomViewPagerAdapter adapter = new CustomViewPagerAdapter(getActivity(), billings);
+        CustomViewPager2Adapter adapter = new CustomViewPager2Adapter(getActivity(), billings);
         viewPager.setPageTransformer(new DepthPageTransformer());
         viewPager.setAdapter(adapter);
 
@@ -134,11 +132,11 @@ public class BillingFragment extends Fragment {
 //        }
     }
 
-    public class CustomViewPagerAdapter extends FragmentStateAdapter {
+    public class CustomViewPager2Adapter extends FragmentStateAdapter {
 
         ArrayList<Billing> billings;
 
-        public CustomViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, ArrayList<Billing> billings) {
+        public CustomViewPager2Adapter(@NonNull FragmentActivity fragmentActivity, ArrayList<Billing> billings) {
             super(fragmentActivity);
             this.billings = billings;
         }
@@ -147,9 +145,24 @@ public class BillingFragment extends Fragment {
         @Override
         public Fragment createFragment(int position) {
 
-            // TODO: add code for setting database
+//
+                switch (position) {
+                    case 0:
+                        return BillingViewPagerFragment.newInstance("lodj", "7555880959", "www.google.com");
+//                    case 1:
+//                        return viewpager2.newInstance(R.drawable.ali, "Ali Morshedlou", "Java Developer");
+//                    case 2:
+//                        return viewpager2.newInstance(R.drawable.christina, "Christina", "Swift Developer");
+//                    case 3:
+//                        return viewpager2.newInstance(R.drawable.tamarcus, "Tamarcus Brown", "Website Developer");
+//                    case 4:
+//                        return viewpager2.newInstance(R.drawable.banter, "Banter", "UI Designer");
+                    default:
+                        return BillingViewPagerFragment.newInstance("Error", "Scott", "designer");
+                }
 
-            return BillingViewPagerFragment.newInstance(billings.get(position).getCompanyName(), billings.get(position).getCompanyPhone(), billings.get(position).getCompanyWebsite());
+
+//            return BillingViewPagerFragment.newInstance(billings.get(position).getCompanyName(), billings.get(position).getCompanyPhone(), billings.get(position).getCompanyWebsite());
 
         }
 
