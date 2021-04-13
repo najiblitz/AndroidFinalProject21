@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.androidfinal.Database;
 import com.example.androidfinal.Pojo.Saving;
@@ -84,9 +85,9 @@ public class CreateSavingFragment extends Fragment {
 
         // Settings
 
-        EditText text1 = view.findViewById(R.id.textView45);
-        EditText text2 = view.findViewById(R.id.textView6);
-        EditText text3 = view.findViewById(R.id.textView7);
+        TextView text1 = view.findViewById(R.id.textView45);
+        TextView text2 = view.findViewById(R.id.textView6);
+        TextView text3 = view.findViewById(R.id.textView7);
 
         if (textSize) {
             text1.setTextSize(32);
